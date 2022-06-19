@@ -24,4 +24,5 @@ export default NextAuth({
             return true; // Do different verification for other providers that don't have `email_verified`
         },
     },
+    secret: process.env.NEXT_PUBLIC_SECRET,
 });
