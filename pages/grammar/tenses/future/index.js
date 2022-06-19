@@ -58,7 +58,7 @@ export default Future;
 export async function getStaticProps({ locale }) {
     let data = [];
     try {
-        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Future/`);
+        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Future`);
         data = await res.json();
     } catch (error) {
         console.error(error);

@@ -58,7 +58,7 @@ export default Present;
 export async function getStaticProps({ locale }) {
     let data = [];
     try {
-        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Present/`);
+        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Present`);
         data = await res.json();
     } catch (error) {
         console.error(error);

@@ -58,7 +58,7 @@ export default Past;
 export async function getStaticProps({ locale }) {
     let data = [];
     try {
-        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Past/`);
+        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Past`);
         data = await res.json();
     } catch (error) {
         console.error(error);

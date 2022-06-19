@@ -59,7 +59,7 @@ export default Tenses;
 export async function getStaticProps({ locale }) {
     let data = [];
     try {
-        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/`);
+        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles`);
         data = await res.json();
     } catch (error) {
         console.error(error);
