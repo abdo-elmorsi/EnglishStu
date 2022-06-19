@@ -46,9 +46,10 @@ export default function Index(props) {
     const columns = useMemo(
         () => [
             {
-                name: "id",
-                selector: (row) => row.id,
+                name: "ID",
+                selector: "id",
                 sortable: true,
+                width: "18%",
             },
 
             {
@@ -63,6 +64,7 @@ export default function Index(props) {
                         </Button>
                     );
                 },
+                width: "24%",
             },
             {
                 name: `${t("Name")}`,
