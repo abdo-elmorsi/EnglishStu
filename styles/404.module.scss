@@ -1,0 +1,47 @@
+.not_found_container {
+    position: relative;
+    height: calc(100vh - 200px);
+}
+.notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    max-width: 767px;
+    width: 100%;
+    line-height: 1.4;
+    padding: 0px 15px;
+
+    h1 {
+        font-family: "Titillium Web", sans-serif;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    p {
+        font-family: "Montserrat", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 0px;
+    }
+    a {
+        font-family: "Titillium Web", sans-serif;
+        display: inline-block;
+        text-transform: uppercase;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        background: #5c91fe;
+        padding: 10px 40px;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 1px;
+        margin-top: 15px;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+    a:hover {
+        opacity: 0.8;
+    }
+}
