@@ -65,7 +65,7 @@ export default function Idioms({ Idioms }) {
                     <Col sm="12" md="6">
                         <Form.Group className="col-12 col-md-8">
                             <Form.Label htmlFor="search">
-                                {t("Search")}
+                                {t("search")}
                             </Form.Label>
                             <Form.Control
                                 style={{ textAlign: "left" }}
@@ -73,7 +73,7 @@ export default function Idioms({ Idioms }) {
                                 type="search"
                                 id="search"
                                 onChange={(e) => setfilter(e.target.value)}
-                                placeholder={`${t("Name")}...`}
+                                placeholder={`${t("name")}...`}
                             />
                         </Form.Group>
                     </Col>

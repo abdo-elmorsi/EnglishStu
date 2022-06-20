@@ -1,18 +1,18 @@
 const data = [
     {
-        title: "Present Simple",
+        title: "present_simple",
         image: "/assets/images/tenses.jpeg",
         desc: "...",
         link: "grammar/tenses/present/simple",
     },
     {
-        title: "Present Continuous",
+        title: "present_continuous",
         image: "/assets/images/tenses.jpeg",
         desc: "...",
         link: "grammar/tenses/present/continuous",
     },
     {
-        title: "Present Perfect",
+        title: "present_perfect",
         image: "/assets/images/tenses.jpeg",
         desc: "...",
         link: "grammar/tenses/present/perfect",

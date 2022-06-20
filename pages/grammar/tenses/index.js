@@ -9,7 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ScrollReveal from "../../../components/ScrollReveal";
 import { animateList, slideUp } from "../../../helpers/Animation";
 const Tenses = ({ data }) => {
-    const { t } = useTranslation("main");
+    const { t } = useTranslation("grammar");
     return (
         <Row className="row-cols-1 row-cols-md-2 g-4">
             {data?.map((ele, i) => {
@@ -41,7 +41,7 @@ const Tenses = ({ data }) => {
                                 </p>
                                 <Link href={`/${ele.link}`}>
                                     <a className="btn btn-primary">
-                                        {t("details")}
+                                        {t("details", { ns: "main" })}
                                     </a>
                                 </Link>
                             </Card.Body>
@@ -67,7 +67,7 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             data,
-            ...(await serverSideTranslations(locale, ["main"])),
+            ...(await serverSideTranslations(locale, ["main", "grammar"])),
         }, // will be passed to the page component as props
     };
 }

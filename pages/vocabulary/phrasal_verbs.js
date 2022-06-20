@@ -20,7 +20,7 @@ import Meta from "../../components/meta";
 import { toast } from "react-toastify";
 
 export default function PhrasalVerb({ PhrasalVerb }) {
-    const { t } = useTranslation("main");
+    const { t } = useTranslation("phrasalverbs");
 
     const [DataType, setDataType] = useState("");
     const [filter, setfilter] = useState("");
@@ -43,8 +43,8 @@ export default function PhrasalVerb({ PhrasalVerb }) {
     return (
         <>
             <Meta
-                title="English Stu | Phrasal Verbs"
-                description="English Phrasal Verbs"
+                title="phrasal Verbs | Vocabulary | EnglishStu"
+                description="A list of English phrasal Verbs, with definitions, explanations, sample sentences, quizzes and answers. Arranged alphabetically."
                 keywords={phrasalVerbsNames}
             />
             <>
@@ -59,11 +59,11 @@ export default function PhrasalVerb({ PhrasalVerb }) {
                                     style={{ direction: "initial" }}
                                     className={`${darkMode ? "dark" : ""}`}
                                 >
-                                    {t("What is Phrasal verbs?")}
+                                    {t("What is the Phrasal verbs?")}
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     {t(
-                                        "Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb."
+                                        "Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb"
                                     )}
                                 </Accordion.Body>
                             </Accordion.Item>
@@ -71,6 +71,7 @@ export default function PhrasalVerb({ PhrasalVerb }) {
                     </Row>
                 </Accordion>
                 <TableComp
+                    Name="phrasal_verbs"
                     filter={filter}
                     setfilter={setfilter}
                     t={t}
@@ -117,7 +118,7 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             PhrasalVerb,
-            ...(await serverSideTranslations(locale, ["main"])),
+            ...(await serverSideTranslations(locale, ["main", "phrasalverbs"])),
         },
         revalidate: 120,
     };

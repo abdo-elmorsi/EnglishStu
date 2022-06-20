@@ -19,7 +19,7 @@ import Meta from "../../components/meta";
 // Toastify
 import { toast } from "react-toastify";
 export default function Collocations({ Collocations }) {
-    const { t } = useTranslation("main");
+    const { t } = useTranslation("collocations");
 
     const [DataType, setDataType] = useState("");
     const [filter, setfilter] = useState("");
@@ -42,8 +42,8 @@ export default function Collocations({ Collocations }) {
     return (
         <>
             <Meta
-                title="English Stu | Collocations"
-                description="English Collocations"
+                title="Collocations | Vocabulary | EnglishStu"
+                description="A list of English collocations, with definitions, explanations, sample sentences, quizzes and answers. Arranged alphabetically."
                 keywords={collocationsNames}
             />
             <>
@@ -57,11 +57,11 @@ export default function Collocations({ Collocations }) {
                                 <Accordion.Header
                                     className={`${darkMode ? "dark" : ""}`}
                                 >
-                                    {t("What is a collocation?")}
+                                    {t("What is the collocation?")}
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     {t(
-                                        'A collocation is two or more words that often go together. These combinations just sound "right" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound "wrong".'
+                                        'A collocation is two or more words that often go together. These combinations just sound "right" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound "wrong"'
                                     )}
                                 </Accordion.Body>
                             </Accordion.Item>
@@ -74,7 +74,7 @@ export default function Collocations({ Collocations }) {
                                 <Accordion.Header
                                     className={`${darkMode ? "dark" : ""}`}
                                 >
-                                    {t("Why learn collocations?")}
+                                    {t("Why do we learn collocations?")}
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     <ListGroup>
@@ -85,7 +85,7 @@ export default function Collocations({ Collocations }) {
                                         >
                                             👌{" "}
                                             {t(
-                                                "Your language will be more natural and more easily understood."
+                                                "Your language will be more natural and more easily understood"
                                             )}
                                         </ListGroup.Item>
                                         <ListGroup.Item
@@ -95,7 +95,7 @@ export default function Collocations({ Collocations }) {
                                         >
                                             👍{" "}
                                             {t(
-                                                "You will have alternative and richer ways of expressing yourself."
+                                                "You will have alternative and richer ways of expressing yourself"
                                             )}
                                         </ListGroup.Item>
                                         <ListGroup.Item
@@ -105,7 +105,7 @@ export default function Collocations({ Collocations }) {
                                         >
                                             🤙{" "}
                                             {t(
-                                                "It is easier for our brains to remember and use language in chunks or blocks rather than as single words."
+                                                "It is easier for our brains to remember and use language in chunks or blocks rather than as single words"
                                             )}
                                         </ListGroup.Item>
                                     </ListGroup>
@@ -201,6 +201,7 @@ export default function Collocations({ Collocations }) {
                     </Row>
                 </Accordion>
                 <TableComp
+                    Name="collocations"
                     filter={filter}
                     setfilter={setfilter}
                     t={t}
@@ -248,7 +249,7 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             Collocations,
-            ...(await serverSideTranslations(locale, ["main"])),
+            ...(await serverSideTranslations(locale, ["main", "collocations"])),
         },
         revalidate: 120,
     };

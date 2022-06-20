@@ -1,18 +1,18 @@
 const data = [
     {
-        title: "Future Simple",
+        title: "future_simple",
         image: "/assets/images/tenses.jpeg",
         desc: "...",
         link: "grammar/tenses/future/simple",
     },
     {
-        title: "Future Continuous",
+        title: "future_continuous",
         image: "/assets/images/tenses.jpeg",
         desc: "...",
         link: "grammar/tenses/future/continuous",
     },
     {
-        title: "Future Perfect",
+        title: "future_perfect",
         image: "/assets/images/tenses.jpeg",
         desc: "...",
         link: "grammar/tenses/future/perfect",

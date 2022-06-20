@@ -12,7 +12,7 @@ export default function PageNotFound() {
 
     return (
         <>
-            <Meta title="English Stu | Page Not Found" />
+            <Meta title="EnglishStu - Page Not Found" />
             <Card className={`${Styles.not_found_container}`}>
                 <div className={`${Styles.notfound}`}>
                     <Card.Header>

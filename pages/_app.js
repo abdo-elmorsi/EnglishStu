@@ -17,6 +17,7 @@ import { SessionProvider } from "next-auth/react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import Layout from "../layout";
+import Meta from "../components/meta";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     const [, setLoading] = useState(false);
@@ -68,6 +69,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                             height={4}
                             showOnShallow={true}
                         />
+                        <Meta />
                         <Layout>
                             <Component {...pageProps} />
                         </Layout>

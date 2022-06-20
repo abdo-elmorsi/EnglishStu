@@ -1,7 +1,6 @@
 import React, { useMemo } from "react";
-import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
-import { useTranslation } from "next-i18next";
+// import { useTranslation } from "next-i18next";
 
 // Bootstrap
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
@@ -17,10 +16,8 @@ import ExpandedComp from "./ExpandedComponent";
 import { useSpeechSynthesis } from "react-speech-kit";
 
 export default function Index(props) {
-    const { filter, setfilter, Data, DataType, setDataType } = props;
-    const { t } = useTranslation("main");
+    const { Name, filter, setfilter, t, Data, DataType, setDataType } = props;
     const { speak } = useSpeechSynthesis();
-    const { pathname } = useRouter();
     const { language, darkMode } = useSelector((state) => state.config);
 
     // get Collocations Keys from Collocations
@@ -47,7 +44,7 @@ export default function Index(props) {
         () => [
             {
                 name: "ID",
-                selector: "id",
+                selector: (row) => row.id,
                 sortable: true,
                 width: "18%",
             },
@@ -83,21 +80,21 @@ export default function Index(props) {
                 <Row>
                     <Col sm="12" md="6">
                         <Form.Group className="col-12 col-md-8 mx-auto text-center text-md-start">
-                            <Form.Label>{t("Search")}</Form.Label>
+                            <Form.Label>
+                                {t("search", { ns: "main" })}
+                            </Form.Label>
                             <Form.Control
                                 value={filter}
                                 type="search"
                                 id="search"
                                 onChange={(e) => setfilter(e.target.value)}
-                                placeholder={`${t("Name")}...`}
+                                placeholder={`${t("name", { ns: "main" })}...`}
                             />
                         </Form.Group>
                     </Col>
                     <Col sm="12" md="6">
                         <Form.Group className="col-12 col-md-8 mx-auto text-center text-md-start mt-3 mt-md-0">
-                            <Form.Label>
-                                {t("Choose Collocations Type")}
-                            </Form.Label>
+                            <Form.Label>{t(`choose_${Name}_type`)}</Form.Label>
                             <Form.Select
                                 style={{ cursor: "pointer" }}
                                 aria-label="Floating label select example"
@@ -128,11 +125,7 @@ export default function Index(props) {
                         className="col"
                     >
                         <DataTable
-                            title={
-                                pathname.includes("collocations")
-                                    ? `${t("collocations")}`
-                                    : `${t("phrasal_verbs")}`
-                            }
+                            title={t(Name, { ns: "main" })}
                             columns={columns}
                             data={Data?.filter((ele) =>
                                 ele?.en?.Name.toString().startsWith(

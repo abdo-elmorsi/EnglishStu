@@ -9,7 +9,7 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import ScrollReveal from "../../../../components/ScrollReveal";
 import { animateList, slideUp } from "../../../../helpers/Animation";
 const Future = ({ data }) => {
-    const { t } = useTranslation("main");
+    const { t } = useTranslation("future");
 
     return (
         <Row className="row-cols-1 row-cols-md-2 g-4">
@@ -40,7 +40,7 @@ const Future = ({ data }) => {
                                 </p>
                                 <Link href={`/${ele.link}`}>
                                     <a className="btn btn-primary">
-                                        {t("details")}
+                                        {t("details", { ns: "main" })}
                                     </a>
                                 </Link>
                             </Card.Body>
@@ -58,7 +58,9 @@ export default Future;
 export async function getStaticProps({ locale }) {
     let data = [];
     try {
-        const res = await fetch(`${process.env.API_URL}/api/Tenses/Titles/Future`);
+        const res = await fetch(
+            `${process.env.API_URL}/api/Tenses/Titles/Future`
+        );
         data = await res.json();
     } catch (error) {
         console.error(error);
@@ -66,7 +68,7 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             data,
-            ...(await serverSideTranslations(locale, ["main"])),
+            ...(await serverSideTranslations(locale, ["main", "future"])),
         }, // will be passed to the page component as props
     };
 }

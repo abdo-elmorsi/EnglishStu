@@ -3,17 +3,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-
-import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
+import { Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { changeLanguage, darkMode } from "../lib/slices/config";
 // translation
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
-import MobildeOffcanvas from "./mobile-offcanvas";
+// import MobildeOffcanvas from "./mobile-offcanvas";
 import HorizontalNav from "./horizontal-nav";
 
 const HeaderStyle3 = () => {
@@ -52,8 +49,54 @@ const HeaderStyle3 = () => {
         <>
             <Navbar expand="lg" variant="light" className="nav iq-navbar">
                 <Container fluid className="navbar-inner">
-                    <MobildeOffcanvas />
-
+                    <Link href="/">
+                        <a className="d-flex">
+                            <svg
+                                width="30"
+                                viewBox="0 0 30 30"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <rect
+                                    x="-0.757324"
+                                    y="19.2427"
+                                    width="28"
+                                    height="4"
+                                    rx="2"
+                                    transform="rotate(-45 -0.757324 19.2427)"
+                                    fill="currentColor"
+                                />
+                                <rect
+                                    x="7.72803"
+                                    y="27.728"
+                                    width="28"
+                                    height="4"
+                                    rx="2"
+                                    transform="rotate(-45 7.72803 27.728)"
+                                    fill="currentColor"
+                                />
+                                <rect
+                                    x="10.5366"
+                                    y="16.3945"
+                                    width="16"
+                                    height="4"
+                                    rx="2"
+                                    transform="rotate(45 10.5366 16.3945)"
+                                    fill="currentColor"
+                                />
+                                <rect
+                                    x="10.5562"
+                                    y="-0.556152"
+                                    width="28"
+                                    height="4"
+                                    rx="2"
+                                    transform="rotate(45 10.5562 -0.556152)"
+                                    fill="currentColor"
+                                />
+                            </svg>
+                            <h4 className="mx-2">EnglishStu</h4>
+                        </a>
+                    </Link>
                     <Navbar.Toggle aria-controls="navbarSup">
                         <span className="navbar-toggler-icon">
                             <span className="navbar-toggler-bar bar1 mt-2"></span>
@@ -63,58 +106,8 @@ const HeaderStyle3 = () => {
                     </Navbar.Toggle>
                     <Navbar.Collapse
                         id="navbarSup"
-                        className="justify-content-between"
+                        className="justify-content-end"
                     >
-                        <Link href="/">
-                            <a className="d-none d-xl-flex ">
-                                <span>
-                                    <svg
-                                        width="30"
-                                        viewBox="0 0 30 30"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <rect
-                                            x="-0.757324"
-                                            y="19.2427"
-                                            width="28"
-                                            height="4"
-                                            rx="2"
-                                            transform="rotate(-45 -0.757324 19.2427)"
-                                            fill="currentColor"
-                                        />
-                                        <rect
-                                            x="7.72803"
-                                            y="27.728"
-                                            width="28"
-                                            height="4"
-                                            rx="2"
-                                            transform="rotate(-45 7.72803 27.728)"
-                                            fill="currentColor"
-                                        />
-                                        <rect
-                                            x="10.5366"
-                                            y="16.3945"
-                                            width="16"
-                                            height="4"
-                                            rx="2"
-                                            transform="rotate(45 10.5366 16.3945)"
-                                            fill="currentColor"
-                                        />
-                                        <rect
-                                            x="10.5562"
-                                            y="-0.556152"
-                                            width="28"
-                                            height="4"
-                                            rx="2"
-                                            transform="rotate(45 10.5562 -0.556152)"
-                                            fill="currentColor"
-                                        />
-                                    </svg>
-                                </span>
-                                <h4 className="mx-2">English Stu</h4>
-                            </a>
-                        </Link>
                         <Nav as="ul" className="">
                             <Dropdown
                                 as="li"
@@ -347,17 +340,6 @@ const HeaderStyle3 = () => {
                 </Container>
             </Navbar>
             <div className="navbar dual-horizontal mx-md-auto">
-                <Button
-                    className="d-none d-xl-flex "
-                    onClick={() => router.back()}
-                >
-                    <FontAwesomeIcon
-                        style={{
-                            transform: "rotate(90deg)",
-                        }}
-                        icon={faArrowLeft}
-                    />
-                </Button>
                 <HorizontalNav />
             </div>
         </>
