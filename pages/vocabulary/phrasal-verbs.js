@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { db } from "../../lib/firebase/config";
 import { collection, getDocs, orderBy } from "firebase/firestore";
 
-import { Accordion, Col, Row } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 
 // Translation
 import { useTranslation } from "next-i18next";
@@ -49,26 +49,22 @@ export default function PhrasalVerb({ PhrasalVerb }) {
             />
             <>
                 <Accordion defaultActiveKey="0" alwaysOpen>
-                    <Row>
-                        <Col sm={12} lg={6}>
-                            <Accordion.Item
-                                className={`${darkMode ? "bg-dark" : ""}`}
-                                eventKey="0"
-                            >
-                                <Accordion.Header
-                                    style={{ direction: "initial" }}
-                                    className={`${darkMode ? "dark" : ""}`}
-                                >
-                                    {t("What is the Phrasal verbs?")}
-                                </Accordion.Header>
-                                <Accordion.Body>
-                                    {t(
-                                        "Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb"
-                                    )}
-                                </Accordion.Body>
-                            </Accordion.Item>
-                        </Col>
-                    </Row>
+                    <Accordion.Item
+                        className={`${darkMode ? "bg-dark" : ""}`}
+                        eventKey="0"
+                    >
+                        <Accordion.Header
+                            style={{ direction: "initial" }}
+                            className={`${darkMode ? "dark" : ""}`}
+                        >
+                            {t("What is the Phrasal verbs?")}
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            {t(
+                                "Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb"
+                            )}
+                        </Accordion.Body>
+                    </Accordion.Item>
                 </Accordion>
                 <TableComp
                     Name="phrasal_verbs"

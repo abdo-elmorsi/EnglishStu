@@ -61,9 +61,9 @@ export default function Idioms({ Idioms }) {
             />
 
             <div dir="ltr">
-                <Row className="mb-4">
+                <Row className="mb-2">
                     <Col sm="12" md="6">
-                        <Form.Group className="col-12 col-md-8">
+                        <Form.Group>
                             <Form.Label htmlFor="search">
                                 {t("search")}
                             </Form.Label>
@@ -81,63 +81,54 @@ export default function Idioms({ Idioms }) {
                 <Row>
                     {filteredData?.map((ele, i) => {
                         return (
-                            <React.Fragment key={i}>
-                                <ScrollReveal
-                                    className={`col-12 col-lg-6`}
-                                    sm={12}
-                                    lg={6}
-                                    variants={animateList}
-                                >
-                                    <motion.div variants={slideUp}>
-                                        <ListGroup>
-                                            <OverlayTrigger
-                                                placement="top-start"
-                                                delay={{
-                                                    show: 300,
-                                                    hide: 250,
-                                                }}
-                                                overlay={
-                                                    <Tooltip id="button-tooltip">
-                                                        {"Ex: " +
-                                                            (ele?.Ex ||
-                                                                "Not available")}
-                                                    </Tooltip>
-                                                }
-                                                context={ele.Ex}
-                                                containerPadding={20}
+                            <ScrollReveal key={i} variants={animateList}>
+                                <motion.div variants={slideUp}>
+                                    <ListGroup>
+                                        <OverlayTrigger
+                                            placement="top-start"
+                                            delay={{
+                                                show: 300,
+                                                hide: 250,
+                                            }}
+                                            overlay={
+                                                <Tooltip id="button-tooltip">
+                                                    {"Ex: " +
+                                                        (ele?.Ex ||
+                                                            "Not available")}
+                                                </Tooltip>
+                                            }
+                                            context={ele.Ex}
+                                            containerPadding={20}
+                                        >
+                                            <ListGroup.Item
+                                                className={`${
+                                                    darkMode ? "text-white" : ""
+                                                } my-2 ${Styles.col}`}
                                             >
-                                                <ListGroup.Item
-                                                    className={`${
-                                                        darkMode
-                                                            ? "text-white"
-                                                            : ""
-                                                    } my-2 ${Styles.col}`}
+                                                <Button
+                                                    size="sm"
+                                                    className="bg-transparent shadow-none border-0"
+                                                    onClick={() =>
+                                                        speak({
+                                                            text: ele?.first,
+                                                        })
+                                                    }
                                                 >
-                                                    <Button
-                                                        size="sm"
-                                                        className="bg-transparent shadow-none border-0"
-                                                        onClick={() =>
-                                                            speak({
-                                                                text: ele?.first,
-                                                            })
-                                                        }
-                                                    >
-                                                        🎤
-                                                    </Button>
-                                                    <span>
-                                                        {`${i + 1}: `}
-                                                        <ColorSwitcher
-                                                            text={ele?.first}
-                                                        />
-                                                    </span>
-                                                    {" => "}
-                                                    <span>{ele?.second}</span>
-                                                </ListGroup.Item>
-                                            </OverlayTrigger>
-                                        </ListGroup>
-                                    </motion.div>
-                                </ScrollReveal>
-                            </React.Fragment>
+                                                    🎤
+                                                </Button>
+                                                <span>
+                                                    {`${i + 1}: `}
+                                                    <ColorSwitcher
+                                                        text={ele?.first}
+                                                    />
+                                                </span>
+                                                {" => "}
+                                                <span>{ele?.second}</span>
+                                            </ListGroup.Item>
+                                        </OverlayTrigger>
+                                    </ListGroup>
+                                </motion.div>
+                            </ScrollReveal>
                         );
                     })}
                 </Row>

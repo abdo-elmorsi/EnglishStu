@@ -78,8 +78,8 @@ export default function Index(props) {
         <Card className="mt-4" style={{ minHeight: "400px" }}>
             <Card.Body>
                 <Row>
-                    <Col sm="12" md="6">
-                        <Form.Group className="col-12 col-md-8 mx-auto text-center text-md-start">
+                    <Col sm="12">
+                        <Form.Group>
                             <Form.Label>
                                 {t("search", { ns: "main" })}
                             </Form.Label>
@@ -92,8 +92,8 @@ export default function Index(props) {
                             />
                         </Form.Group>
                     </Col>
-                    <Col sm="12" md="6">
-                        <Form.Group className="col-12 col-md-8 mx-auto text-center text-md-start mt-3 mt-md-0">
+                    <Col sm="12 mt-3">
+                        <Form.Group>
                             <Form.Label>{t(`choose_${Name}_type`)}</Form.Label>
                             <Form.Select
                                 style={{ cursor: "pointer" }}
@@ -109,9 +109,9 @@ export default function Index(props) {
                                             style={{
                                                 cursor: "auto",
                                             }}
-                                            className="btn btn-secondary mx-2"
+                                            className="btn btn-secondary"
                                         >
-                                            {ele}{" "}
+                                            {ele}
                                         </option>
                                     );
                                 })}

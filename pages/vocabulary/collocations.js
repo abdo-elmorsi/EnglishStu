@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { db } from "../../lib/firebase/config";
 import { collection, getDocs, orderBy } from "firebase/firestore";
 
-import { Accordion, Col, ListGroup, Row } from "react-bootstrap";
+import { Accordion, Breadcrumb, Col, ListGroup, Row } from "react-bootstrap";
 
 // Translation
 import { useTranslation } from "next-i18next";
@@ -18,6 +18,7 @@ import TableComp from "../../components/Table/Index";
 import Meta from "../../components/meta";
 // Toastify
 import { toast } from "react-toastify";
+import Link from "next/link";
 export default function Collocations({ Collocations }) {
     const { t } = useTranslation("collocations");
 
@@ -47,9 +48,26 @@ export default function Collocations({ Collocations }) {
                 keywords={collocationsNames}
             />
             <>
+                <Breadcrumb>
+                    <Breadcrumb.Item>
+                        <Link href="/">
+                            <a>home</a>
+                        </Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        <Link href="/vocabulary">
+                            <a>vocabulary</a>
+                        </Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item active>
+                        <Link href="/vocabulary/collocations">
+                            <a>Collocations</a>
+                        </Link>
+                    </Breadcrumb.Item>
+                </Breadcrumb>
                 <Accordion defaultActiveKey="0" alwaysOpen>
                     <Row>
-                        <Col sm={12} lg={6}>
+                        <Col sm={12}>
                             <Accordion.Item
                                 className={`${darkMode ? "bg-dark" : ""}`}
                                 eventKey="0"
@@ -66,7 +84,7 @@ export default function Collocations({ Collocations }) {
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Col>
-                        <Col sm={12} lg={6}>
+                        <Col sm={12}>
                             <Accordion.Item
                                 className={`${darkMode ? "bg-dark" : ""}`}
                                 eventKey="1"
@@ -112,7 +130,7 @@ export default function Collocations({ Collocations }) {
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Col>
-                        <Col sm={12} lg={6}>
+                        <Col sm={12}>
                             <Accordion.Item
                                 className={`${darkMode ? "bg-dark" : ""}`}
                                 eventKey="2"

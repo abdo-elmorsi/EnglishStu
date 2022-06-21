@@ -108,7 +108,7 @@ const HeaderStyle3 = () => {
                         id="navbarSup"
                         className="justify-content-end"
                     >
-                        <Nav as="ul" className="">
+                        <Nav as="ul" >
                             <Dropdown
                                 as="li"
                                 className="nav-item d-flex align-items-center"
