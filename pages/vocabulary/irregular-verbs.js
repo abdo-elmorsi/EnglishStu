@@ -16,7 +16,7 @@ export default function Irregular() {
                 .
             </p>
 
-            <Table className="" responsive striped bordered>
+            <Table responsive striped bordered>
                 <thead>
                     <tr>
                         <th>
@@ -521,13 +521,13 @@ export default function Irregular() {
                 </tbody>
             </Table>
 
-            <p className="">
+            <p>
                 See also:{" "}
                 <Link href="/vocabulary/regular-verbs">
                     <a>regular verbs list</a>
                 </Link>
             </p>
-            <p className="">
+            <p>
                 Test yourself with these{" "}
                 <Link href="/">
                     <a>fun irregular verbs quizzes</a>

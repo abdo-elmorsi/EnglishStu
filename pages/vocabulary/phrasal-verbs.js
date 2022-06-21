@@ -7,10 +7,6 @@ import { collection, getDocs, orderBy } from "firebase/firestore";
 
 import { Accordion } from "react-bootstrap";
 
-// Translation
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 // Tabldel.js
 import TableComp from "../../components/Table/Index";
 
@@ -20,8 +16,6 @@ import Meta from "../../components/meta";
 import { toast } from "react-toastify";
 
 export default function PhrasalVerb({ PhrasalVerb }) {
-    const { t } = useTranslation("phrasalverbs");
-
     const [DataType, setDataType] = useState("");
     const [filter, setfilter] = useState("");
     const { darkMode } = useSelector((state) => state.config);
@@ -57,20 +51,20 @@ export default function PhrasalVerb({ PhrasalVerb }) {
                             style={{ direction: "initial" }}
                             className={`${darkMode ? "dark" : ""}`}
                         >
-                            {t("What is the Phrasal verbs?")}
+                            What is the Phrasal verbs?
                         </Accordion.Header>
                         <Accordion.Body>
-                            {t(
-                                "Phrasal verbs are very common in English, especially in more informal contexts. They are made up of a verb and a particle or, sometimes, two particles. The particle often changes the meaning of the verb"
-                            )}
+                            Phrasal verbs are very common in English, especially
+                            in more informal contexts. They are made up of a
+                            verb and a particle or, sometimes, two particles.
+                            The particle often changes the meaning of the verb
                         </Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
                 <TableComp
-                    Name="phrasal_verbs"
+                    Name="Phrasal Verbs"
                     filter={filter}
                     setfilter={setfilter}
-                    t={t}
                     Data={filteredData}
                     DataType={DataType}
                     setDataType={setDataType}
@@ -81,7 +75,7 @@ export default function PhrasalVerb({ PhrasalVerb }) {
 }
 // translation ##################################
 // fetch data from firebase in getStaticProps
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
     let PhrasalVerb = [];
     let id = 1;
     // await the promise
@@ -114,7 +108,6 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             PhrasalVerb,
-            ...(await serverSideTranslations(locale, ["main", "phrasalverbs"])),
         },
         revalidate: 120,
     };

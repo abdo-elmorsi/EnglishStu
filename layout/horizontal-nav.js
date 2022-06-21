@@ -2,10 +2,8 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
 
 const HorizontalNav = () => {
-    const { t } = useTranslation("main");
     //router
     let router = useRouter();
 
@@ -28,7 +26,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    {t("home")}
+                                    home
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -44,7 +42,39 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    {t("grammar")}
+                                    grammar
+                                </a>
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Link href="/vocabulary">
+                                <a
+                                    className={`${
+                                        router.pathname === "/vocabulary"
+                                            ? "active"
+                                            : ""
+                                    } nav-link `}
+                                    style={{
+                                        minWidth: "max-content",
+                                    }}
+                                >
+                                    Vocabulary{" "}
+                                </a>
+                            </Link>
+                        </Nav.Item>
+                        <Nav.Item as="li">
+                            <Link href="/kids/numbers">
+                                <a
+                                    className={`${
+                                        router.pathname === "/kids/numbers"
+                                            ? "active"
+                                            : ""
+                                    } nav-link `}
+                                    style={{
+                                        minWidth: "max-content",
+                                    }}
+                                >
+                                    Numbers
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -61,7 +91,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    {t("collocations")}
+                                    collocations
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -78,7 +108,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    {t("phrasal_verbs")}
+                                    Phrasal verbs
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -94,23 +124,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    {t("idioms")}
-                                </a>
-                            </Link>
-                        </Nav.Item>
-                        <Nav.Item as="li">
-                            <Link href="/test_yourself">
-                                <a
-                                    className={`${
-                                        router.pathname === "/test_yourself"
-                                            ? "active"
-                                            : ""
-                                    } nav-link `}
-                                    style={{
-                                        minWidth: "max-content",
-                                    }}
-                                >
-                                    {t("test_yourself")}
+                                    idioms
                                 </a>
                             </Link>
                         </Nav.Item>

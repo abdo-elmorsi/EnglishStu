@@ -19,7 +19,7 @@ export default function numbers() {
                     <Image
                         src="/assets/images/kids/numbers-123blocks.gif"
                         alt="123 number blocks"
-                        className=""
+                        
                         width="300"
                         height="300"
                     />
@@ -104,7 +104,7 @@ export default function numbers() {
                     <Image
                         src="/assets/images/kids/numbers-medal.gif"
                         alt="1st prize medal"
-                        className=""
+                        
                         width="200"
                         height="200"
                     />
@@ -191,7 +191,7 @@ export default function numbers() {
                     <Image
                         src="/assets/images/kids/numbers-icecream.gif"
                         alt="a triple ice-cream"
-                        className=""
+                        
                         width="200"
                         height="200"
                     />
@@ -229,7 +229,7 @@ export default function numbers() {
                 </p>
             </article>
 
-            <nav className="">
+            <nav >
                 <ul>
                     <li>Numbers in English</li>
                     <li>

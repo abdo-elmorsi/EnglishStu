@@ -1,7 +1,6 @@
 import React from "react";
 import Link from "next/link";
-// translation
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import { Button } from "react-bootstrap";
 
 import { motion } from "framer-motion";
@@ -38,12 +37,3 @@ export default function Index() {
         </>
     );
 }
-// translation ##################################
-export async function getStaticProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["main"])),
-        },
-    };
-}
-// translation ##################################

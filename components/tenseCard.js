@@ -1,8 +1,5 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-// translation
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -11,8 +8,6 @@ import { slideUp, animateList } from "../helpers/Animation";
 import { motion } from "framer-motion";
 import ScrollReveal from "../components/ScrollReveal";
 export default function TenseCard({ data }) {
-    const { t } = useTranslation("main");
-
     return (
         <ScrollReveal
             className="col-sm-12 col-md-6 col-lg-4 "
@@ -27,24 +22,15 @@ export default function TenseCard({ data }) {
                     layout="responsive"
                 />
                 <Card.Body>
-                    <h5 className="card-title">{t(`${data.title}`)}</h5>
+                    <h5 className="card-title">{data.title}</h5>
                     <p className="card-text" style={{ minHeight: "100px" }}>
-                        {t(data.desc)}
+                        {data.desc}
                     </p>
                     <Link href={`/${data.link}`} className="btn btn-primary">
-                        <a>{t("Details")}</a>
+                        <a>Details</a>
                     </Link>
                 </Card.Body>
             </motion.div>
         </ScrollReveal>
     );
 }
-// translation ##################################
-export async function getStaticProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["main"])),
-        },
-    };
-}
-// translation ##################################

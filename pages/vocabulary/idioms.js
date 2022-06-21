@@ -15,10 +15,6 @@ import {
     Form,
 } from "react-bootstrap";
 
-// Translation
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 import Styles from "../../styles/IdiomsExpressions.module.scss";
 
 // ColorSwitcher Component
@@ -38,7 +34,6 @@ import Meta from "../../components/meta";
 import { toast } from "react-toastify";
 export default function Idioms({ Idioms }) {
     const { darkMode } = useSelector((state) => state.config);
-    const { t } = useTranslation("main");
     const { speak } = useSpeechSynthesis();
     const [filter, setfilter] = useState("");
 
@@ -60,20 +55,17 @@ export default function Idioms({ Idioms }) {
                 keywords={idiomsNames}
             />
 
-            <div dir="ltr">
+            <>
                 <Row className="mb-2">
                     <Col sm="12" md="6">
                         <Form.Group>
-                            <Form.Label htmlFor="search">
-                                {t("search")}
-                            </Form.Label>
+                            <Form.Label htmlFor="search">Search</Form.Label>
                             <Form.Control
-                                style={{ textAlign: "left" }}
                                 value={filter}
-                                type="search"
+                                type="Search"
                                 id="search"
                                 onChange={(e) => setfilter(e.target.value)}
-                                placeholder={`${t("name")}...`}
+                                placeholder={`Name...`}
                             />
                         </Form.Group>
                     </Col>
@@ -132,13 +124,13 @@ export default function Idioms({ Idioms }) {
                         );
                     })}
                 </Row>
-            </div>
+            </>
         </>
     );
 }
 // translation ##################################
 // fetch data from firebase in getStaticProps
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
     let Idioms = [];
     let id = 1;
     // await the promise
@@ -164,7 +156,6 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             Idioms,
-            ...(await serverSideTranslations(locale, ["main"])),
         },
         revalidate: 120,
     };

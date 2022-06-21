@@ -1,69 +1,31 @@
 import React from "react";
 
-export default function ExpandedComponent({ data, darkMode, Language }) {
+export default function ExpandedComponent({ data, darkMode }) {
     return (
-        <div>
-            <pre></pre>
-            {Language === "en" ? (
-                <>
-                    Description:
-                    <pre
-                        className="mx-0 mx-lg-5"
-                        style={{
-                            whiteSpace: "break-spaces",
-                            padding: "0 10px",
-                            color: `${darkMode ? "#FFEB3B" : "#dc3545d6"}`,
-                        }}
-                    >
-                        {JSON.stringify(data?.en?.Desc)}
-                    </pre>
-                </>
-            ) : (
-                <>
-                    الوصف:
-                    <pre
-                        className="mx-0 mx-lg-5"
-                        style={{
-                            direction: "rtl",
-                            whiteSpace: "break-spaces",
-                            padding: "0 10px",
-                            color: `${darkMode ? "#FFEB3B" : "#dc3545d6"}`,
-                        }}
-                    >
-                        {JSON.stringify(data?.ar?.Desc)}
-                    </pre>
-                </>
-            )}
-            {Language === "en" ? (
-                <>
-                    Example:
-                    <pre
-                        className="mx-0 mx-lg-5"
-                        style={{
-                            whiteSpace: "break-spaces",
-                            padding: "0 10px",
-                            color: `${darkMode ? "#FFEB3B" : "#6f42c1"}`,
-                        }}
-                    >
-                        {JSON.stringify(data?.en?.Ex)}
-                    </pre>
-                </>
-            ) : (
-                <>
-                    مثال:
-                    <pre
-                        className="mx-0 mx-lg-5"
-                        style={{
-                            direction: "rtl",
-                            whiteSpace: "break-spaces",
-                            padding: "0 10px",
-                            color: `${darkMode ? "#FFEB3B" : "#198754"}`,
-                        }}
-                    >
-                        {JSON.stringify(data?.ar?.Ex)}
-                    </pre>
-                </>
-            )}
+        <div className="pt-4">
+            Description:
+            <pre
+                style={{
+                    whiteSpace: "break-spaces",
+                    padding: "0 10px",
+                    color: `${darkMode ? "#FFEB3B" : "#dc3545d6"}`,
+                }}
+            >
+                <p>{JSON.stringify(data?.en.Desc)}</p>
+
+                <p dir="rtl">{JSON.stringify(data?.ar.Desc)}</p>
+            </pre>
+            Example:
+            <pre
+                style={{
+                    whiteSpace: "break-spaces",
+                    padding: "0 10px",
+                    color: `${darkMode ? "#FFEB3B" : "#6f42c1"}`,
+                }}
+            >
+                <p> {JSON.stringify(data?.en?.Ex)}</p>
+                <p dir="rtl">{JSON.stringify(data?.ar.Ex)}</p>
+            </pre>
         </div>
     );
 }

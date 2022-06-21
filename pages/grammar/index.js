@@ -1,23 +1,19 @@
 import React from "react";
-// translation
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Breadcrumb, Card, Col, Row } from "react-bootstrap";
 import Link from "next/link";
 
 export default function Test_yourself() {
-    const { t } = useTranslation("main");
     return (
         <>
             <Breadcrumb>
                 <Breadcrumb.Item>
                     <Link href="/">
-                        <a>{t("home")}</a>
+                        <a>home</a>
                     </Link>
                 </Breadcrumb.Item>
                 <Breadcrumb.Item active>
                     <Link href="/grammar">
-                        <a>{t("grammar")}</a>
+                        <a>grammar</a>
                     </Link>
                 </Breadcrumb.Item>
             </Breadcrumb>
@@ -167,13 +163,3 @@ export default function Test_yourself() {
         </>
     );
 }
-
-// translation ##################################
-export async function getStaticProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["main"])),
-        },
-    };
-}
-// translation ##################################

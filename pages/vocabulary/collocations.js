@@ -7,10 +7,6 @@ import { collection, getDocs, orderBy } from "firebase/firestore";
 
 import { Accordion, Breadcrumb, Col, ListGroup, Row } from "react-bootstrap";
 
-// Translation
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 // Tabldel.js
 import TableComp from "../../components/Table/Index";
 
@@ -20,8 +16,6 @@ import Meta from "../../components/meta";
 import { toast } from "react-toastify";
 import Link from "next/link";
 export default function Collocations({ Collocations }) {
-    const { t } = useTranslation("collocations");
-
     const [DataType, setDataType] = useState("");
     const [filter, setfilter] = useState("");
     const { darkMode } = useSelector((state) => state.config);
@@ -75,12 +69,15 @@ export default function Collocations({ Collocations }) {
                                 <Accordion.Header
                                     className={`${darkMode ? "dark" : ""}`}
                                 >
-                                    {t("What is the collocation?")}
+                                    What is the collocation?
                                 </Accordion.Header>
                                 <Accordion.Body>
-                                    {t(
-                                        'A collocation is two or more words that often go together. These combinations just sound "right" to native English speakers, who use them all the time. On the other hand, other combinations may be unnatural and just sound "wrong"'
-                                    )}
+                                    A collocation is two or more words that
+                                    often go together. These combinations just
+                                    sound "right" to native English speakers,
+                                    who use them all the time. On the other
+                                    hand, other combinations may be unnatural
+                                    and just sound "wrong"
                                 </Accordion.Body>
                             </Accordion.Item>
                         </Col>
@@ -92,7 +89,7 @@ export default function Collocations({ Collocations }) {
                                 <Accordion.Header
                                     className={`${darkMode ? "dark" : ""}`}
                                 >
-                                    {t("Why do we learn collocations?")}
+                                    Why do we learn collocations?
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     <ListGroup>
@@ -101,30 +98,26 @@ export default function Collocations({ Collocations }) {
                                                 darkMode ? "text-white" : ""
                                             } mb-2`}
                                         >
-                                            👌{" "}
-                                            {t(
-                                                "Your language will be more natural and more easily understood"
-                                            )}
+                                            👌 Your language will be more
+                                            natural and more easily understood
                                         </ListGroup.Item>
                                         <ListGroup.Item
                                             className={`${
                                                 darkMode ? "text-white" : ""
                                             } mb-2`}
                                         >
-                                            👍{" "}
-                                            {t(
-                                                "You will have alternative and richer ways of expressing yourself"
-                                            )}
+                                            👍 You will have alternative and
+                                            richer ways of expressing yourself
                                         </ListGroup.Item>
                                         <ListGroup.Item
                                             className={`${
                                                 darkMode ? "text-white" : ""
                                             } mb-2`}
                                         >
-                                            🤙{" "}
-                                            {t(
-                                                "It is easier for our brains to remember and use language in chunks or blocks rather than as single words"
-                                            )}
+                                            🤙 It is easier for our brains to
+                                            remember and use language in chunks
+                                            or blocks rather than as single
+                                            words
                                         </ListGroup.Item>
                                     </ListGroup>
                                 </Accordion.Body>
@@ -138,14 +131,14 @@ export default function Collocations({ Collocations }) {
                                 <Accordion.Header
                                     className={`${darkMode ? "dark" : ""}`}
                                 >
-                                    {t("Types of collocation?")}
+                                    ypes of collocation?
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     <p>
-                                        {t(
-                                            "There are several different types of collocation made from combinations of verb, noun, adjective etc. Some of the most common types are"
-                                        )}
-                                        :
+                                        There are several different types of
+                                        collocation made from combinations of
+                                        verb, noun, adjective etc. Some of the
+                                        most common types are :
                                     </p>
                                     <ListGroup>
                                         <ListGroup.Item
@@ -222,7 +215,6 @@ export default function Collocations({ Collocations }) {
                     Name="collocations"
                     filter={filter}
                     setfilter={setfilter}
-                    t={t}
                     Data={filteredData}
                     DataType={DataType}
                     setDataType={setDataType}
@@ -233,7 +225,7 @@ export default function Collocations({ Collocations }) {
 }
 // translation ##################################
 // fetch data from firebase in getStaticProps
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
     let Collocations = [];
     let id = 1;
     // await the promise
@@ -267,7 +259,6 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             Collocations,
-            ...(await serverSideTranslations(locale, ["main", "collocations"])),
         },
         revalidate: 120,
     };

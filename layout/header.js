@@ -5,45 +5,25 @@ import { useSession, signIn, signOut } from "next-auth/react";
 
 import { Navbar, Container, Nav, Dropdown } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { changeLanguage, darkMode } from "../lib/slices/config";
-// translation
-import { useTranslation } from "next-i18next";
-import { useRouter } from "next/router";
+import { darkMode } from "../lib/slices/config";
 
-// import MobildeOffcanvas from "./mobile-offcanvas";
 import HorizontalNav from "./horizontal-nav";
 
 const HeaderStyle3 = () => {
     const { data, status } = useSession();
     // const { data, status } = useSession({ required: true });
     const { config } = useSelector((state) => state);
-    const { t } = useTranslation("main");
-    const { language } = config;
-    const router = useRouter();
     const dispatch = useDispatch();
 
     useEffect(() => {
-        document.body.setAttribute(
-            "dir",
-            `${config.language === "ar" ? "rtl" : "ltr"}`
-        );
-        router.push(router.pathname, router.pathname, {
-            locale: config.language,
-        });
-
         config.darkMode
             ? document.body.classList.add("dark")
             : document.body.classList.remove("dark");
-    }, [config.darkMode, config.language]);
+    }, [config.darkMode]);
 
     const toggleDarkMode = (e) => {
         e.preventDefault();
         dispatch(darkMode());
-    };
-
-    const toggleLanguage = (e) => {
-        e.preventDefault();
-        dispatch(changeLanguage(language === "en" ? "ar" : "en"));
     };
     return (
         <>
@@ -108,7 +88,7 @@ const HeaderStyle3 = () => {
                         id="navbarSup"
                         className="justify-content-end"
                     >
-                        <Nav as="ul" >
+                        <Nav as="ul">
                             <Dropdown
                                 as="li"
                                 className="nav-item d-flex align-items-center"
@@ -251,31 +231,6 @@ const HeaderStyle3 = () => {
                                 as="li"
                                 className="nav-item d-flex align-items-center"
                             >
-                                <button
-                                    className={`border-0 bg-transparent `}
-                                    onClick={toggleLanguage}
-                                >
-                                    {config?.language === "en" ? (
-                                        <Image
-                                            src={"https://flagcdn.com/us.svg"}
-                                            width={"25px"}
-                                            height={"17"}
-                                            alt=""
-                                        />
-                                    ) : (
-                                        <Image
-                                            src={"https://flagcdn.com/eg.svg"}
-                                            width={"25px"}
-                                            height={"17"}
-                                            alt=""
-                                        />
-                                    )}
-                                </button>
-                            </Dropdown>
-                            <Dropdown
-                                as="li"
-                                className="nav-item d-flex align-items-center"
-                            >
                                 <Dropdown.Toggle
                                     variant="nav-link py-0 d-flex align-items-center"
                                     id="navbarDropdown"
@@ -319,7 +274,7 @@ const HeaderStyle3 = () => {
                                                 className="px-0"
                                             >
                                                 <a className="d-block dropdown-item">
-                                                    {t("SignIn")}
+                                                    SignIn
                                                 </a>
                                             </Dropdown.Item>
                                         ) : (
@@ -329,7 +284,7 @@ const HeaderStyle3 = () => {
                                                 className="px-0"
                                             >
                                                 <a className="d-block dropdown-item">
-                                                    {t("SignOut")}
+                                                    SignOut
                                                 </a>
                                             </Dropdown.Item>
                                         ))}

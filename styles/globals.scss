@@ -1,16 +1,17 @@
 @import "./scss/hope-ui.scss";
 @import "./scss/dark.scss";
-@import "./scss/rtl.scss";
 @import "./scss/custom.scss";
 @import "./scss/customizer.scss";
 
 body,
 html,
 :root {
-    // direction: initial;
+    //direction: initial;
     text-orientation: initial;
     writing-mode: initial;
     scroll-behavior: smooth;
+    -webkit-writing-mode: initial;
+    -ms-writing-mode: initial;
 }
 body::-webkit-scrollbar {
     width: 8px;
@@ -39,7 +40,6 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield; /* Firefox */
 }
-
 
 %init {
     height: 20px;

@@ -4,58 +4,32 @@ import { useSelector } from "react-redux";
 import ColorSwitcher from "../../../../components/ColorSwitcher";
 import DataTable from "react-data-table-component";
 
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-
 export default function PastSimple({ data }) {
-    const { t } = useTranslation();
     const columns = useMemo(
         () => [
             {
-                name: `${t("Affirmative")} (+)`,
+                name: "Affirmative (+)",
                 selector: (row) => row.Affirmative,
                 sortable: true,
             },
             {
-                name: `${t("Negative")} (-)`,
+                name: "Negative} (-)",
                 selector: (row) => row.Negative,
                 sortable: true,
             },
             {
-                name: `${t("Interrogative")} (?)`,
+                name: "Interrogative (?)",
                 selector: (row) => row.Interrogative,
                 sortable: true,
             },
             {
-                name: `${t("Arabic")}`,
+                name: "Arabic",
                 selector: (row) => row.Ar,
                 sortable: true,
             },
         ],
-        [t]
+        []
     );
-    // const columns = [
-    //     {
-    //         name: `${t("Affirmative")} (+)`,
-    //         selector: (row) => row.Affirmative,
-    //         sortable: true,
-    //     },
-    //     {
-    //         name: `${t("Negative")} (-)`,
-    //         selector: (row) => row.Negative,
-    //         sortable: true,
-    //     },
-    //     {
-    //         name: `${t("Interrogative")} (?)`,
-    //         selector: (row) => row.Interrogative,
-    //         sortable: true,
-    //     },
-    //     {
-    //         name: `${t("Arabic")}`,
-    //         selector: (row) => row.Ar,
-    //         sortable: true,
-    //     },
-    // ];
     const { darkMode } = useSelector((state) => state.config);
 
     const [mounted, setMounted] = useState(false);
@@ -66,34 +40,33 @@ export default function PastSimple({ data }) {
         mounted && (
             <>
                 <Card>
-                    <Card.Header className="">
+                    <Card.Header>
                         <h4 className="w-100  mx-auto mb-5">
-                            {t(
-                                "The past simple  is used to talk about events that occurred in the past at a specific time."
-                            )}
+                            The past simple is used to talk about events that
+                            occurred in the past at a specific time.
                         </h4>
                     </Card.Header>
                     <Card.Body>
                         {/* uses */}
                         <section>
                             <p className="ps-0 ps-lg-2 h4">
-                                <ColorSwitcher text={t("Uses")} /> :
+                                <ColorSwitcher text="Uses" /> :
                             </p>
                             <ol className="d-flex justify-content-flex-start flex-column gap-3">
                                 <li className="mb-3">
-                                    {t("the event is")}
+                                    the event is
                                     <ColorSwitcher text="in the past" />
                                 </li>
                                 <li className="mb-3">
-                                    {t("the event is")}
+                                    the event is
                                     <ColorSwitcher text="completely finished" />
                                 </li>
                                 <li className="mb-3">
-                                    {t("we say (or understand) the")}
+                                    we say (or understand) the
                                     <ColorSwitcher text="time" />
                                     and/or
                                     <ColorSwitcher text="place" />
-                                    {t("of the event")}
+                                    of the event
                                 </li>
                             </ol>
                         </section>
@@ -101,35 +74,24 @@ export default function PastSimple({ data }) {
                         {/* first table */}
                         <section>
                             <h4 className="mb-3 text-center Header_Line">
-                                <ColorSwitcher
-                                    text={`${t(
-                                        "How do we make the Past Simple"
-                                    )}`}
-                                />
+                                <ColorSwitcher text="How do we make the Past Simple" />
                                 ?
                             </h4>
                             <small className="mb-4 d-block text-center w-75 mx-auto">
-                                {t(
-                                    "Look at these examples with the main verbs"
-                                )}
+                                Look at these examples with the main verbs
                                 <ColorSwitcher text={"go"} />
                                 (irregular) and
                                 <ColorSwitcher text={"work"} />
                                 (regular):
                             </small>
-                            <Table
-                                className="mb-5"
-                                responsive
-                                striped
-                                bordered
-                            >
+                            <Table className="mb-5" responsive striped bordered>
                                 <thead>
                                     <tr>
                                         <th></th>
-                                        <th>sub</th>
-                                        <th>{t("auxiliary")} (v)</th>
+                                        <th>Sub</th>
+                                        <th>Auxiliary (v)</th>
                                         <th>&nbsp;</th>
-                                        <th>{t("main")} (v)</th>
+                                        <th>Main (v)</th>
                                         <th>&nbsp;</th>
                                     </tr>
                                 </thead>
@@ -207,10 +169,8 @@ export default function PastSimple({ data }) {
                                 </tbody>
                             </Table>
                             <p>
-                                {t(
-                                    "From the above table, notice the following points"
-                                )}
-                                :
+                                From the above table, notice the following
+                                points :
                             </p>
                             {/* Positive */}
                             <div>
@@ -221,13 +181,12 @@ export default function PastSimple({ data }) {
 
                                 <ol className="d-flex justify-content-flex-start flex-column gap-3">
                                     <li className="mb-3">
-                                        {t("There is no auxiliary verb")} .
+                                        There is no auxiliary verb .
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "The main verb is conjugated in the Past Simple, invariable => -ed (or irregular)"
-                                        )}
-                                        .
+                                        The main verb is conjugated in the Past
+                                        Simple, invariable ِِ: -ed (or
+                                        irregular) .
                                     </li>
                                 </ol>
                             </div>
@@ -242,27 +201,20 @@ export default function PastSimple({ data }) {
 
                                 <ol className="d-flex justify-content-flex-start flex-column gap-3">
                                     <li className="mb-3">
-                                        {t(
-                                            "The auxiliary is conjugated in the Past Simple, invariable => did"
-                                        )}
-                                        .
+                                        The auxiliary is conjugated in the Past
+                                        Simple, invariable : did .
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "For question sentences, we exchange the subject and the auxiliary verb"
-                                        )}
-                                        .
+                                        For question sentences, we exchange the
+                                        subject and the auxiliary verb .
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "The main verb is invariable in base form => base"
-                                        )}
-                                        .
+                                        The main verb is invariable in base form
+                                        : base .
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "For negative sentences, we insert not between the auxiliary verb and main verb"
-                                        )}
+                                        For negative sentences, we insert not
+                                        between the auxiliary verb and main verb
                                         .
                                     </li>
                                 </ol>
@@ -271,11 +223,7 @@ export default function PastSimple({ data }) {
                         {/* second table */}
                         <section>
                             <h4 className="mb-3 text-center Header_Line">
-                                <ColorSwitcher
-                                    text={`${t(
-                                        "Past Simple with the main verb be =>"
-                                    )}`}
-                                />
+                                <ColorSwitcher text="Past Simple with the main verb be :" />
                             </h4>
                             <Table
                                 responsive
@@ -288,7 +236,7 @@ export default function PastSimple({ data }) {
                                         <th></th>
                                         <th>sub</th>
                                         <th>
-                                            {t("main")} (v) <em>be</em>
+                                            main (v) <em>be</em>
                                         </th>
                                         <th></th>
                                         <th>&nbsp;</th>
@@ -357,36 +305,26 @@ export default function PastSimple({ data }) {
                             {/* describe the table */}
                             <div>
                                 <p>
-                                    {t(
-                                        "From the above table, notice the following points"
-                                    )}
-                                    :
+                                    From the above table, notice the following
+                                    points :
                                 </p>
                                 <ol className="ps-5 pb-4 d-flex justify-content-around align-items-center flex-wrap gap-4">
                                     <li className="mb-3">
-                                        {t(
-                                            "There is no auxiliary verb, even for questions and negatives"
-                                        )}
-                                        .
+                                        There is no auxiliary verb, even for
+                                        questions and negatives .
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "The main verb (be) is conjugated in the Past Simple"
-                                        )}
-                                        :
+                                        The main verb (be) is conjugated in the
+                                        Past Simple :
                                         <ColorSwitcher text="was, were" />
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "For negative sentences, we insert not after the main verb"
-                                        )}
-                                        .
+                                        For negative sentences, we insert not
+                                        after the main verb .
                                     </li>
                                     <li className="mb-3">
-                                        {t(
-                                            "For question sentences, we exchange the subject and the main verb"
-                                        )}{" "}
-                                        .
+                                        For question sentences, we exchange the
+                                        subject and the main verb .
                                     </li>
                                 </ol>
                             </div>
@@ -394,7 +332,7 @@ export default function PastSimple({ data }) {
                         {/* الكلمات الدلاليه */}
                         <section>
                             <h4 className="mb-3 text-center Header_Line">
-                                <ColorSwitcher text={`${t("Tags")}`} />
+                                <ColorSwitcher text={`Tags`} />
                             </h4>
 
                             {/* (often, sometimes, always) */}
@@ -407,14 +345,14 @@ export default function PastSimple({ data }) {
 
                                 <ol className="d-flex justify-content-flex-start flex-column gap-3">
                                     <li className="mb-3">
-                                        {t("I")}
+                                        I
                                         <ColorSwitcher text="sometimes walked" />
-                                        {t("home at lunchtime")}.
+                                        home at lunchtime.
                                     </li>
                                     <li className="mb-3">
-                                        {t("I")}
+                                        I
                                         <ColorSwitcher text="often brought" />
-                                        {t("my lunch to school")} .
+                                        my lunch to school .
                                     </li>
                                 </ol>
                             </div>
@@ -428,20 +366,20 @@ export default function PastSimple({ data }) {
 
                                 <ol className="d-flex justify-content-flex-start flex-column gap-3">
                                     <li className="mb-3">
-                                        {t("We saw a good film")}
+                                        We saw a good film
                                         <ColorSwitcher text="last week" />.
                                     </li>
                                     <li className="mb-3">
-                                        <ColorSwitcher text="Yesterday" />,
-                                        {t("I arrived in Geneva")}.
+                                        <ColorSwitcher text="Yesterday" />, I
+                                        arrived in Geneva.
                                     </li>
                                     <li className="mb-3">
-                                        {t("She finished her work")}
+                                        She finished her work
                                         <ColorSwitcher text="at seven o'clock" />
                                         .
                                     </li>
                                     <li className="mb-3">
-                                        {t("I went to the theatre")}
+                                        I went to the theatre
                                         <ColorSwitcher text="last week" />
                                     </li>
                                 </ol>
@@ -449,7 +387,7 @@ export default function PastSimple({ data }) {
                         </section>
                         {/* table */}
                         <h4 className="mb-3 text-center Header_Line">
-                            {t("Examples")}
+                            Examples
                         </h4>
                         <Row>
                             <DataTable
@@ -469,7 +407,7 @@ export default function PastSimple({ data }) {
 }
 
 // Fetch Tenses Data ##################################
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
     let data = [];
     try {
         const res = await fetch(
@@ -482,7 +420,6 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             data,
-            ...(await serverSideTranslations(locale, ["main"])),
         }, // will be passed to the page component as props
     };
 }

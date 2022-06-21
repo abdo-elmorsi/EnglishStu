@@ -344,7 +344,7 @@ export default function Simple() {
                     <li>the action is not only happening now</li>
                     <li>the statement is always true</li>
                 </ul>
-                <Table responsive striped bordered className="">
+                <Table responsive striped bordered >
                     <tbody>
                         <tr>
                             <td colSpan="3" className="bg-example">
@@ -398,7 +398,7 @@ export default function Simple() {
                     these verbs with the Present Simple tense to talk about a
                     situation at the present time, not general.
                 </p>
-                <Table responsive striped bordered className="">
+                <Table responsive striped bordered >
                     <tbody>
                         <tr>
                             <td colSpan="3" className="bg-example">
@@ -446,7 +446,7 @@ export default function Simple() {
                     - some are <strong>general</strong> and some are{" "}
                     <strong>now</strong>:
                 </p>
-                <Table responsive striped bordered className="">
+                <Table responsive striped bordered >
                     <tbody>
                         <tr>
                             <td colSpan="3" className="bg-example">
@@ -484,7 +484,7 @@ export default function Simple() {
                         </tr>
                     </tbody>
                 </Table>
-                <Table responsive striped bordered className="">
+                <Table responsive striped bordered >
                     <tbody>
                         <tr>
                             <td colSpan="3" className="bg-example">

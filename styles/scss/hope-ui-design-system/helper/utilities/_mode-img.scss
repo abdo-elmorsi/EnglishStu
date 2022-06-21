@@ -8,13 +8,6 @@
         }
     }
 }
-[dir=rtl] {
-    .mode {
-        &.rtl-img {
-            display: block;
-        }
-    }
-}
 .mode {
     display: none;
     &.light-img {

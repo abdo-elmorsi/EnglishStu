@@ -7,7 +7,6 @@ const Meta = ({
 }) => {
     return (
         <Head>
-            <meta charSet="UTF-8" />
             <title>{title}</title>
             <meta
                 name="keywords"
@@ -17,11 +16,6 @@ const Meta = ({
                 }
             />
             <meta name="description" content={description} />
-            <meta name="author" content="Abdelrahman Ahmed" />
-            <meta
-                name="viewport"
-                content="width=device-width,initial-scale=1"
-            />
         </Head>
     );
 };

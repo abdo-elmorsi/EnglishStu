@@ -1,6 +1,5 @@
 import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
-// import { useTranslation } from "next-i18next";
 
 // Bootstrap
 import { Button, Card, Col, Form, Row } from "react-bootstrap";
@@ -16,9 +15,9 @@ import ExpandedComp from "./ExpandedComponent";
 import { useSpeechSynthesis } from "react-speech-kit";
 
 export default function Index(props) {
-    const { Name, filter, setfilter, t, Data, DataType, setDataType } = props;
+    const { Name, filter, setfilter, Data, DataType, setDataType } = props;
     const { speak } = useSpeechSynthesis();
-    const { language, darkMode } = useSelector((state) => state.config);
+    const { darkMode } = useSelector((state) => state.config);
 
     // get Collocations Keys from Collocations
     const uniqueValues = useMemo(() => {
@@ -37,7 +36,7 @@ export default function Index(props) {
     }, [Data]);
 
     const ExpandedComponent = ({ data }) => (
-        <ExpandedComp data={data} darkMode={darkMode} Language={language} />
+        <ExpandedComp data={data} darkMode={darkMode} />
     );
 
     const columns = useMemo(
@@ -50,7 +49,7 @@ export default function Index(props) {
             },
 
             {
-                name: `${t("Voice")}`,
+                name: `Voice`,
                 selector: (row) => {
                     return (
                         <Button
@@ -64,14 +63,18 @@ export default function Index(props) {
                 width: "24%",
             },
             {
-                name: `${t("Name")}`,
-                selector: (row) =>
-                    language === "ar" ? row?.ar?.Name : row?.en?.Name,
+                name: `Name En`,
+                selector: (row) => row.en.Name,
+                sortable: true,
+            },
+            {
+                name: `Name Ar`,
+                selector: (row) => row.ar.Name,
                 sortable: true,
             },
         ],
 
-        [language, speak, t]
+        [speak]
     );
     const rowPreExpanded = (row) => row.id === 1;
     return (
@@ -80,21 +83,19 @@ export default function Index(props) {
                 <Row>
                     <Col sm="12">
                         <Form.Group>
-                            <Form.Label>
-                                {t("search", { ns: "main" })}
-                            </Form.Label>
+                            <Form.Label>Search</Form.Label>
                             <Form.Control
                                 value={filter}
                                 type="search"
                                 id="search"
                                 onChange={(e) => setfilter(e.target.value)}
-                                placeholder={`${t("name", { ns: "main" })}...`}
+                                placeholder={`Name...`}
                             />
                         </Form.Group>
                     </Col>
                     <Col sm="12 mt-3">
                         <Form.Group>
-                            <Form.Label>{t(`choose_${Name}_type`)}</Form.Label>
+                            <Form.Label>Choose ${Name} type</Form.Label>
                             <Form.Select
                                 style={{ cursor: "pointer" }}
                                 aria-label="Floating label select example"
@@ -125,7 +126,7 @@ export default function Index(props) {
                         className="col"
                     >
                         <DataTable
-                            title={t(Name, { ns: "main" })}
+                            title={Name}
                             columns={columns}
                             data={Data?.filter((ele) =>
                                 ele?.en?.Name.toString().startsWith(

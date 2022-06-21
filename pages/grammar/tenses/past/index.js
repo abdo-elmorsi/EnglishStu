@@ -3,14 +3,10 @@ import { Card, Row } from "react-bootstrap";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import ScrollReveal from "../../../../components/ScrollReveal";
 import { animateList, slideUp } from "../../../../helpers/Animation";
 const Past = ({ data }) => {
-    const { t } = useTranslation("past");
-
     return (
         <Row className="row-cols-1 row-cols-md-2 g-4">
             {data?.map((ele, i) => {
@@ -29,19 +25,15 @@ const Past = ({ data }) => {
                                 layout="responsive"
                             />
                             <Card.Body>
-                                <h5 className="card-title">
-                                    {t(`${ele.title}`)}
-                                </h5>
+                                <h5 className="card-title">{ele.title}</h5>
                                 <p
                                     className="card-text"
                                     style={{ minHeight: "100px" }}
                                 >
-                                    {t(ele.desc)}
+                                    {ele.desc}
                                 </p>
                                 <Link href={`/${ele.link}`}>
-                                    <a className="btn btn-primary">
-                                        {t("details", { ns: "main" })}
-                                    </a>
+                                    <a className="btn btn-primary">Details</a>
                                 </Link>
                             </Card.Body>
                         </motion.div>
@@ -55,7 +47,7 @@ const Past = ({ data }) => {
 export default Past;
 
 // Fetch Tenses Data ##################################
-export async function getStaticProps({ locale }) {
+export async function getStaticProps() {
     let data = [];
     try {
         const res = await fetch(
@@ -68,7 +60,6 @@ export async function getStaticProps({ locale }) {
     return {
         props: {
             data,
-            ...(await serverSideTranslations(locale, ["main", "past"])),
         }, // will be passed to the page component as props
     };
 }

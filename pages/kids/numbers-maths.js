@@ -68,7 +68,7 @@ export default function numbers() {
                 </p>
                 <h2>Other Maths Symbols:</h2>
 
-                <Table className="" responsive striped bordered>
+                <Table  responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>&lt;</td>
@@ -135,10 +135,10 @@ export default function numbers() {
                 </a>
             </nav>
 
-            <nav className="">
+            <nav >
                 <ul>
                     <li>
-                        <Link href="nubmers">
+                        <Link href="numbers">
                             <a>Numbers in English</a>
                         </Link>
                     </li>

@@ -12,9 +12,7 @@ import SSRProvider from "react-bootstrap/SSRProvider";
 
 import NextNprogress from "nextjs-progressbar";
 
-import { appWithTranslation } from "next-i18next";
 import { SessionProvider } from "next-auth/react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 import Layout from "../layout";
 import Meta from "../components/meta";
@@ -80,12 +78,5 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     );
 }
 
-export async function getStaticProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["main"])),
-        },
-    };
-}
 // export default MyApp
-export default appWithTranslation(MyApp);
+export default MyApp;

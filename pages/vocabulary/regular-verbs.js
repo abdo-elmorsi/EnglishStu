@@ -15,7 +15,7 @@ export default function Regular() {
                 English).
             </p>
             <div>
-                <Table className="" responsive striped bordered>
+                <Table  responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>
@@ -710,7 +710,7 @@ export default function Regular() {
             </div>
 
             <div className="ec-table-wrapper">
-                <Table className="" responsive striped bordered>
+                <Table  responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>
@@ -1432,13 +1432,13 @@ export default function Regular() {
                 </Table>
             </div>
 
-            <p className="">
+            <p >
                 See also:{" "}
                 <Link href="/vocabulary/irregular-verbs">
                     <a>regular verbs list</a>
                 </Link>
             </p>
-            <p className="">
+            <p >
                 Test yourself with these{" "}
                 <Link href="/">
                     <a>fun irregular verbs quizzes</a>

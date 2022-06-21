@@ -685,10 +685,10 @@ export default function numbers() {
                 </div>
             </article>
 
-            <nav className="">
+            <nav >
                 <ul>
                     <li>
-                        <Link href="nubmers">
+                        <Link href="numbers">
                             <a>Numbers in English</a>
                         </Link>
                     </li>

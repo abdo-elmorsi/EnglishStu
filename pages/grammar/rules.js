@@ -1,12 +1,8 @@
 import React from "react";
-// translation
-// import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { Card } from "react-bootstrap";
 import Link from "next/link";
 
 export default function Test_yourself() {
-    // const { t } = useTranslation("main");
     return (
         <Card>
             <Card.Header>
@@ -676,17 +672,17 @@ export default function Test_yourself() {
                 </ul>
 
                 <nav>
-                    <Link className="" href="/grammar/quizzes">
+                    <Link href="/grammar/quizzes">
                         <a> Grammar Quizzes</a>
                     </Link>
                 </nav>
                 <nav>
-                    <Link className="" href="/grammar">
+                    <Link href="/grammar">
                         <a>Grammar main page</a>
                     </Link>
                 </nav>
 
-                <nav className="">
+                <nav>
                     <Link href="/" title="Go to EnglishStu home page">
                         <a>EnglishStu</a>
                     </Link>{" "}
@@ -700,13 +696,3 @@ export default function Test_yourself() {
         </Card>
     );
 }
-
-// translation ##################################
-export async function getStaticProps({ locale }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(locale, ["main"])),
-        },
-    };
-}
-// translation ##################################
