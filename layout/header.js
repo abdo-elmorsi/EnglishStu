@@ -250,14 +250,12 @@ const HeaderStyle3 = () => {
                                         className="img-fluid avatar avatar-rounded avatar-rounded"
                                     />
                                     <div className="caption ms-3 d-none d-md-block text-start">
-                                        <h6 className="mb-0 caption-title">
+                                        <h5 className="caption-title">
                                             {data ? data.user.name : "Gust"}
-                                        </h6>
-                                        <p className="mb-0 caption-sub-title">
-                                            {data
-                                                ? data.user.email
-                                                : "Gust email"}
-                                        </p>
+                                        </h5>
+                                        <span className="caption-sub-title">
+                                            {data && data.user.email}
+                                        </span>
                                     </div>
                                 </Dropdown.Toggle>
                                 <Dropdown.Menu

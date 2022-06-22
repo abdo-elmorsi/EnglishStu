@@ -1,11 +1,10 @@
 import React, { useMemo, useState } from "react";
-import { useSelector } from "react-redux";
 
 // Firebase
 import { db } from "../../lib/firebase/config";
 import { collection, getDocs, orderBy } from "firebase/firestore";
 
-import { Accordion } from "react-bootstrap";
+import { Breadcrumb } from "react-bootstrap";
 
 // Tabldel.js
 import TableComp from "../../components/Table/Index";
@@ -14,11 +13,11 @@ import TableComp from "../../components/Table/Index";
 import Meta from "../../components/meta";
 // Toastify
 import { toast } from "react-toastify";
+import Link from "next/link";
 
-export default function PhrasalVerb({ PhrasalVerb }) {
+export default function PhrasalVerbs({ PhrasalVerb }) {
     const [DataType, setDataType] = useState("");
     const [filter, setfilter] = useState("");
-    const { darkMode } = useSelector((state) => state.config);
 
     // filter data by search input
     const filteredData = useMemo(() => {
@@ -37,30 +36,29 @@ export default function PhrasalVerb({ PhrasalVerb }) {
     return (
         <>
             <Meta
-                title="phrasal Verbs | Vocabulary | EnglishStu"
+                title="Phrasal Verbs | Vocabulary | EnglishStu | Learn English"
                 description="A list of English phrasal Verbs, with definitions, explanations, sample sentences, quizzes and answers. Arranged alphabetically."
                 keywords={phrasalVerbsNames}
             />
             <>
-                <Accordion defaultActiveKey="0" alwaysOpen>
-                    <Accordion.Item
-                        className={`${darkMode ? "bg-dark" : ""}`}
-                        eventKey="0"
-                    >
-                        <Accordion.Header
-                            style={{ direction: "initial" }}
-                            className={`${darkMode ? "dark" : ""}`}
-                        >
-                            What is the Phrasal verbs?
-                        </Accordion.Header>
-                        <Accordion.Body>
-                            Phrasal verbs are very common in English, especially
-                            in more informal contexts. They are made up of a
-                            verb and a particle or, sometimes, two particles.
-                            The particle often changes the meaning of the verb
-                        </Accordion.Body>
-                    </Accordion.Item>
-                </Accordion>
+                <Breadcrumb>
+                    <Link href="/">
+                        <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                    </Link>
+                    <Link href="/vocabulary">
+                        <Breadcrumb.Item active>Vocabulary</Breadcrumb.Item>
+                    </Link>
+                    <Link href="/vocabulary/phrasal-verbs">
+                        <Breadcrumb.Item active>Phrasal Verb</Breadcrumb.Item>
+                    </Link>
+                </Breadcrumb>
+                <h1 className="mb-4">Phrasal verbs</h1>
+                <p>
+                    Phrasal verbs are very common in English, especially in more
+                    informal contexts. They are made up of a verb and a particle
+                    or, sometimes, two particles. The particle often changes the
+                    meaning of the verb
+                </p>
                 <TableComp
                     Name="Phrasal Verbs"
                     filter={filter}

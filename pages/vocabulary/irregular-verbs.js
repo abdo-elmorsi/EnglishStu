@@ -1,11 +1,24 @@
 import Link from "next/link";
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Breadcrumb, Table } from "react-bootstrap";
+import Meta from "../../components/meta";
 
-export default function Irregular() {
+export default function IrregularVerbs() {
     return (
         <>
-            <h1>Irregular Verbs List</h1>
+            <Meta title="Irregular Verbs | Vocabulary | EnglishStu | Learn English" />
+            <Breadcrumb>
+                <Link href="/">
+                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                </Link>
+                <Link href="/vocabulary">
+                    <Breadcrumb.Item active>Vocabulary</Breadcrumb.Item>
+                </Link>
+                <Link href="/vocabulary/irregular-verbs">
+                    <Breadcrumb.Item active>Irregular Verbs</Breadcrumb.Item>
+                </Link>
+            </Breadcrumb>
+            <h1 className="mb-4">Irregular Verbs List</h1>
             <p>
                 This is a list of some irregular verbs in English. Of course,
                 there are many others, but these are the more common irregular

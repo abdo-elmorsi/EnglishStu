@@ -1,13 +1,24 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Table } from "react-bootstrap";
+import { Breadcrumb, Col, Row, Table } from "react-bootstrap";
 
 export default function numbers() {
     return (
         <>
+            <Breadcrumb>
+                <Link href="/">
+                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                </Link>
+                <Link href="/kids">
+                    <Breadcrumb.Item active>Kids</Breadcrumb.Item>
+                </Link>
+                <Link href="/kids/numbers-maths">
+                    <Breadcrumb.Item active>Numbers Maths</Breadcrumb.Item>
+                </Link>
+            </Breadcrumb>
             <article>
-                <h1>Numbers and Symbols for Maths</h1>
+                <h1 className="mb-4">Numbers and Symbols for Maths</h1>
 
                 <p>
                     The short form of <em>mathematics</em> in British English is{" "}
@@ -15,21 +26,24 @@ export default function numbers() {
                     <strong>math</strong>.
                 </p>
 
-                <div className="d-flex justify-content-between">
-                    <p className="flex-1">
-                        Can you add, subtract and do your multiplication tables
-                        in English? Before you can do the math you need to
-                        understand the question. Learning English for math means
-                        learning numbers, words, and symbols.
-                    </p>
-                    <Image
-                        src="/assets/images/kids/numbers-math.gif"
-                        alt="greenboard with simple maths"
-                        className="flex-2"
-                        width="400"
-                        height="300"
-                    />
-                </div>
+                <Row>
+                    <Col sm="12" lg="6">
+                        <p>
+                            Can you add, subtract and do your multiplication
+                            tables in English? Before you can do the math you
+                            need to understand the question. Learning English
+                            for math means learning numbers, words, and symbols.
+                        </p>
+                    </Col>
+                    <Col sm="12" lg="6" className="text-center">
+                        <Image
+                            src="/assets/images/kids/numbers-math.gif"
+                            alt="greenboard with simple maths"
+                            width="300"
+                            height="200"
+                        />
+                    </Col>
+                </Row>
 
                 <h2>Addition +</h2>
 
@@ -68,7 +82,7 @@ export default function numbers() {
                 </p>
                 <h2>Other Maths Symbols:</h2>
 
-                <Table  responsive striped bordered>
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>&lt;</td>
@@ -135,24 +149,24 @@ export default function numbers() {
                 </a>
             </nav>
 
-            <nav >
+            <nav>
                 <ul>
                     <li>
                         <Link href="numbers">
-                            <a>Numbers in English</a>
+                            <a>Numbers For Kids</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="numbers-chart">
-                            <a> Counting Chart 1-100</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="numbers-quiz">
-                            <a>Counting Quiz</a>
+                            <a>Counting Chart 1-100</a>
                         </Link>
                     </li>
                     <li>Numbers for Maths</li>
+                    <li>
+                        <Link href="quizzes">
+                            <a>Counting Quiz</a>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </>

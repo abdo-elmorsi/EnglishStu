@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 
 import { motion } from "framer-motion";
 import { slideDown } from "../helpers/Animation";
@@ -19,20 +19,43 @@ export default function Index() {
                     duration: 0.6,
                     delay: 0.6,
                 }}
-                className="card p-4 d-flex justify-content-center align-items-center flex-column"
+                className="card"
             >
-                <h4>LEARN</h4>
-                <h1 className="fw-bold">
-                    <ColorSwitcher text="ENGLISH" />
-                </h1>
-                <h4>ONLINE</h4>
-                <Link href="/grammar">
-                    <a>
-                        <Button className="mt-4" variant="primary" size="lg">
-                            Get Started
-                        </Button>
-                    </a>
-                </Link>
+                <Card.Header>
+                    <h1 className="fw-bold mb-4">
+                        LEARN <ColorSwitcher text="ENGLISH " />
+                        ONLINE
+                    </h1>
+                    <h3>Feel good about your English!</h3>
+                </Card.Header>
+                <Card.Body>
+                    <p>
+                        Stagnant English?Tired of not getting results and
+                        throwing in the towel over and over again? Don't you
+                        worry! You have landed in the right place.
+                        <br />
+                        <br />
+                        Learn all the English you need for real life, in a
+                        practical, fun and in-context way.
+                        <br />
+                        <br />
+                        Say "bye-bye" to your textbooks and start living English
+                        as if you were in the UK, but without the cold and rain
+                        part. ☔️
+                    </p>
+                    <h4>Ready to start your fluency journey? ☺</h4>
+                    <Link href="/grammar">
+                        <a>
+                            <Button
+                                className="mt-4 mx-auto w-50 d-block"
+                                variant="primary"
+                                size="lg"
+                            >
+                                Get Started
+                            </Button>
+                        </a>
+                    </Link>
+                </Card.Body>
             </motion.div>
         </>
     );

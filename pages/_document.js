@@ -25,10 +25,6 @@ class MyDocument extends Document {
                 <Head>
                     <meta charSet="UTF-8" />
                     <meta name="author" content="Abdelrahman Ahmed" />
-                    <meta
-                        name="viewport"
-                        content="width=device-width,initial-scale=1"
-                    />
                     <link
                         rel="shortcut icon"
                         href="/assets/images/learn-en-logo.png"

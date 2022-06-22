@@ -4,7 +4,7 @@ import React from "react";
 export default function VerbTenses() {
     return (
         <>
-            <h1>The 12 Basic English Tenses</h1>
+            <h1 className="mb-4">The 12 Basic English Tenses</h1>
             <p>
                 <a href="verb-tenses-system">
                     <strong>The English Tense System</strong>
@@ -150,7 +150,7 @@ export default function VerbTenses() {
                 </li>
             </ul>
 
-            <div className="mb-4 p-2 bg-secondary text-white rounded font-italic">
+            <div className="TIP">
                 Many English learners worry too much about tense. If you stopped
                 100 native English speakers in the street and asked them about
                 tense, 1 of them might give you an intelligent answer - if you

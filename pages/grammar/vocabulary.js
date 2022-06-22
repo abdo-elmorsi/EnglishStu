@@ -4,7 +4,7 @@ import React from "react";
 export default function vocabulary() {
     return (
         <>
-            <h1>Grammar Vocabulary</h1>
+            <h1 className="mb-4">Grammar Vocabulary</h1>
             <p>
                 This is a short list of grammar terms and definitions.
             </p>

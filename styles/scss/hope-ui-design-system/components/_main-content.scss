@@ -7,3 +7,8 @@
         padding: calc(var(--bs-gutter-x, .75rem) * 2);
     }
 }
+@include media-breakpoint-down(sm) {
+    .content-inner {
+        padding: calc(var(--bs-gutter-x, .75rem) * 1.5);
+    }
+}

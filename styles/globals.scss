@@ -3,6 +3,9 @@
 @import "./scss/custom.scss";
 @import "./scss/customizer.scss";
 
+* {
+    cursor: none !important;
+}
 body,
 html,
 :root {
@@ -28,7 +31,40 @@ body::-webkit-scrollbar-thumb {
 #nprogress .spinner {
     display: none !important;
 }
+.breadcrumb-item.active {
+    cursor: pointer;
+}
+.TIP {
+    display: block;
+    background: #c0c0c0;
+    padding: 0.5em 1em 1em;
+    margin: 1em 0;
+    box-shadow: 2px 2px 2px #ececec;
+    color: #272727;
+}
+.TIP::before {
+    content: "EnglishStu TIP";
+    display: block;
+    font-size: 0.8em;
+    color: $blue;
+    font-weight: bold;
+}
 
+.cursor {
+    position: fixed;
+    background: $secondary;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border-radius: 50%;
+    will-change: transform;
+    pointer-events: none;
+    z-index: 10000;
+}
+::selection {
+    color: $dark;
+    background: $blue;
+}
 // remove input type number arrows
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

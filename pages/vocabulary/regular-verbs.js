@@ -1,12 +1,24 @@
 import Link from "next/link";
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Breadcrumb, Table } from "react-bootstrap";
+import Meta from "../../components/meta";
 
-export default function Regular() {
+export default function RegularVerbs() {
     return (
         <>
-            <h1>Regular Verbs List</h1>
-
+            <Meta title="Regular Verbs | Vocabulary | EnglishStu | Learn English" />
+            <Breadcrumb>
+                <Link href="/">
+                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                </Link>
+                <Link href="/vocabulary">
+                    <Breadcrumb.Item active>Vocabulary</Breadcrumb.Item>
+                </Link>
+                <Link href="/vocabulary/regular-verbs">
+                    <Breadcrumb.Item active>Regular Verbs</Breadcrumb.Item>
+                </Link>
+            </Breadcrumb>
+            <h1 className="mb-4">Regular Verbs List</h1>
             <p>
                 There are thousands of regular verbs in English. This is a list
                 of some 600 of the more common regular verbs. Note that there
@@ -15,7 +27,7 @@ export default function Regular() {
                 English).
             </p>
             <div>
-                <Table  responsive striped bordered>
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>
@@ -710,7 +722,7 @@ export default function Regular() {
             </div>
 
             <div className="ec-table-wrapper">
-                <Table  responsive striped bordered>
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>
@@ -1432,13 +1444,13 @@ export default function Regular() {
                 </Table>
             </div>
 
-            <p >
+            <p>
                 See also:{" "}
                 <Link href="/vocabulary/irregular-verbs">
                     <a>regular verbs list</a>
                 </Link>
             </p>
-            <p >
+            <p>
                 Test yourself with these{" "}
                 <Link href="/">
                     <a>fun irregular verbs quizzes</a>

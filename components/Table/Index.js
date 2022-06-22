@@ -78,7 +78,7 @@ export default function Index(props) {
     );
     const rowPreExpanded = (row) => row.id === 1;
     return (
-        <Card className="mt-4" style={{ minHeight: "400px" }}>
+        <Card className="mt-4">
             <Card.Body>
                 <Row>
                     <Col sm="12">

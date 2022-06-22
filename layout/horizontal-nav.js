@@ -26,7 +26,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    home
+                                    Home
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -42,7 +42,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    grammar
+                                    Grammar
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -58,15 +58,15 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    Vocabulary{" "}
+                                    Vocabulary
                                 </a>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link href="/kids/numbers">
+                            <Link href="/kids">
                                 <a
                                     className={`${
-                                        router.pathname === "/kids/numbers"
+                                        router.pathname === "/kids"
                                             ? "active"
                                             : ""
                                     } nav-link `}
@@ -74,7 +74,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    Numbers
+                                    Kids
                                 </a>
                             </Link>
                         </Nav.Item>
@@ -91,16 +91,16 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    collocations
+                                    Collocations
                                 </a>
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link href="/vocabulary/phrasal-verbs">
+                            <Link href="/grammar/verb-tenses">
                                 <a
                                     className={`${
                                         router.pathname ===
-                                        "/vocabulary/phrasal-verbs"
+                                        "/grammar/verb-tenses"
                                             ? "active"
                                             : ""
                                     } nav-link `}
@@ -108,7 +108,7 @@ const HorizontalNav = () => {
                                         minWidth: "max-content",
                                     }}
                                 >
-                                    Phrasal verbs
+                                    Verb Tenses
                                 </a>
                             </Link>
                         </Nav.Item>

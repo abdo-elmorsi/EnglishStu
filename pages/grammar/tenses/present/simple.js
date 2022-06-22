@@ -7,7 +7,7 @@ export default function Simple() {
     return (
         <Card>
             <Card.Header>
-                <h1>
+                <h1 className="mb-4">
                     <ColorSwitcher text="Present Simple" />
                 </h1>
             </Card.Header>

@@ -6,7 +6,7 @@ export default function ColorSwitcher({ text }) {
     const { darkMode } = useSelector((state) => state.config);
 
     return (
-        <span className={` ${darkMode ? "text-info" : "text-primary"}`}>
+        <span className={` ${darkMode ? "text-secondary" : "text-primary"}`}>
             {text}
         </span>
     );

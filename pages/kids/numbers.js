@@ -1,42 +1,55 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Table } from "react-bootstrap";
+import { Breadcrumb, Col, Row, Table } from "react-bootstrap";
 
 export default function numbers() {
     return (
         <>
+            <Breadcrumb>
+                <Link href="/">
+                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                </Link>
+                <Link href="/kids">
+                    <Breadcrumb.Item active>Kids</Breadcrumb.Item>
+                </Link>
+                <Link href="/kids/numbers">
+                    <Breadcrumb.Item active>Numbers</Breadcrumb.Item>
+                </Link>
+            </Breadcrumb>
+            <h1 className="mb-4">Learn about Numbers</h1>
             <article>
-                <div className="d-flex justify-content-between">
-                    <div>
-                        <h1>Learn about Numbers</h1>
+                <Row className="py-4">
+                    <Col sm="12" lg="6">
                         <p>How high can you count?</p>
                         <p>
                             Here is a poem to help you remember the numbers
                             1-10.
                         </p>
-                    </div>
-                    <Image
-                        src="/assets/images/kids/numbers-123blocks.gif"
-                        alt="123 number blocks"
-                        
-                        width="300"
-                        height="300"
-                    />
-                </div>
-                <p>
-                    <i>
-                        One, two, buckle my shoe
-                        <br />
-                        Three, four, shut the door
-                        <br />
-                        Five, six, pick up sticks
-                        <br />
-                        Seven, eight, lay them straight
-                        <br />
-                        Nine, ten, a big fat hen
-                    </i>
-                </p>
+                        <p>
+                            <i>
+                                One, two, buckle my shoe
+                                <br />
+                                Three, four, shut the door
+                                <br />
+                                Five, six, pick up sticks
+                                <br />
+                                Seven, eight, lay them straight
+                                <br />
+                                Nine, ten, a big fat hen
+                            </i>
+                        </p>
+                    </Col>
+                    <Col sm="12" lg="6" className="text-center">
+                        <Image
+                            src="/assets/images/kids/numbers-123blocks.gif"
+                            alt="123 number blocks"
+                            width="300"
+                            height="300"
+                        />
+                    </Col>
+                </Row>
+
                 <p>
                     {" "}
                     Now, can you count higher? How about counting to one hundred
@@ -99,28 +112,31 @@ export default function numbers() {
                     </tbody>
                 </Table>
 
-                <h2 className="d-flex justify-content-between">
-                    Ordinal Numbers
-                    <Image
-                        src="/assets/images/kids/numbers-medal.gif"
-                        alt="1st prize medal"
-                        
-                        width="200"
-                        height="200"
-                    />
-                </h2>
-
-                <p>
-                    The numbers you use to talk about the order of things are
-                    called "ordinal numbers", for example:
-                </p>
-
-                <p>
-                    <i>
-                        My horse came in first.
-                        <br />I was the fifth person in line.
-                    </i>
-                </p>
+                <Row>
+                    <Col sm="12" lg="6">
+                        <h2 className="d-flex justify-content-between">
+                            Ordinal Numbers
+                        </h2>
+                        <p>
+                            The numbers you use to talk about the order of
+                            things are called "ordinal numbers", for example:
+                        </p>
+                        <p>
+                            <i>
+                                My horse came in first.
+                                <br />I was the fifth person in line.
+                            </i>
+                        </p>
+                    </Col>
+                    <Col sm="12" lg="6" className="text-center">
+                        <Image
+                            src="/assets/images/kids/numbers-medal.gif"
+                            alt="1st prize medal"
+                            width="200"
+                            height="200"
+                        />
+                    </Col>
+                </Row>
 
                 <p> Here are the first ten ordinal numbers:</p>
 
@@ -186,20 +202,26 @@ export default function numbers() {
                         </tr>
                     </tbody>
                 </Table>
-                <h2 className="d-flex justify-content-between">
-                    Multiples
-                    <Image
-                        src="/assets/images/kids/numbers-icecream.gif"
-                        alt="a triple ice-cream"
-                        
-                        width="200"
-                        height="200"
-                    />
-                </h2>
-                <p>
-                    Sometimes numbers aren't expressed in cardinal or ordinal
-                    numbers.
-                </p>
+                <Row>
+                    <Col sm="12" lg="6">
+                        <h2 className="d-flex justify-content-between">
+                            Multiples
+                        </h2>
+                        <p>
+                            Sometimes numbers aren't expressed in cardinal or
+                            ordinal numbers.
+                        </p>
+                    </Col>
+                    <Col sm="12" lg="6" className="text-center">
+                        <Image
+                            src="/assets/images/kids/numbers-icecream.gif"
+                            alt="a triple ice-cream"
+                            width="200"
+                            height="200"
+                        />
+                    </Col>
+                </Row>
+
                 <p> Here are a few examples:</p>
                 <p>
                     <i>
@@ -229,22 +251,22 @@ export default function numbers() {
                 </p>
             </article>
 
-            <nav >
+            <nav>
                 <ul>
-                    <li>Numbers in English</li>
+                    <li>Numbers For Kids</li>
                     <li>
                         <Link href="numbers-chart">
-                            <a> Counting Chart 1-100</a>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="numbers-quiz">
-                            <a>Counting Quiz</a>
+                            <a>Counting Chart 1-100</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="numbers-maths">
                             <a>Numbers for Maths</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="quizzes">
+                            <a>Counting Quiz</a>
                         </Link>
                     </li>
                 </ul>

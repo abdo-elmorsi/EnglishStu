@@ -1,14 +1,25 @@
 import Link from "next/link";
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Breadcrumb, Table } from "react-bootstrap";
 
 export default function numbers() {
     return (
         <>
+            <Breadcrumb>
+                <Link href="/">
+                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                </Link>
+                <Link href="/kids">
+                    <Breadcrumb.Item active>Kids</Breadcrumb.Item>
+                </Link>
+                <Link href="/kids/numbers-chart">
+                    <Breadcrumb.Item active>Numbers Chart</Breadcrumb.Item>
+                </Link>
+            </Breadcrumb>
             <article>
-                <h1>Counting Chart: Numbers 1 to 100</h1>
+                <h1 className="mb-4">Counting Chart: Numbers 1 to 100</h1>
 
-                <p className="ECnoprint">
+                <p>
                     You can scroll this chart sideways on mobile (and on desktop
                     if necessary). It will{" "}
                     <strong>
@@ -685,22 +696,22 @@ export default function numbers() {
                 </div>
             </article>
 
-            <nav >
+            <nav>
                 <ul>
                     <li>
                         <Link href="numbers">
-                            <a>Numbers in English</a>
+                            <a>Numbers For Kids</a>
                         </Link>
                     </li>
                     <li>Counting Chart 1-100</li>
                     <li>
-                        <Link href="numbers-quiz">
-                            <a>Counting Quiz</a>
+                        <Link href="numbers-maths">
+                            <a>Numbers for Maths</a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="numbers-maths">
-                            <a>Numbers for Maths</a>
+                        <Link href="quizzes">
+                            <a>Counting Quiz</a>
                         </Link>
                     </li>
                 </ul>

@@ -13,6 +13,7 @@ import {
     OverlayTrigger,
     Col,
     Form,
+    Breadcrumb,
 } from "react-bootstrap";
 
 import Styles from "../../styles/IdiomsExpressions.module.scss";
@@ -32,6 +33,7 @@ import { useSpeechSynthesis } from "react-speech-kit";
 import Meta from "../../components/meta";
 // Toastify
 import { toast } from "react-toastify";
+import Link from "next/link";
 export default function Idioms({ Idioms }) {
     const { darkMode } = useSelector((state) => state.config);
     const { speak } = useSpeechSynthesis();
@@ -50,12 +52,33 @@ export default function Idioms({ Idioms }) {
     return (
         <>
             <Meta
-                title="English Stu | Idioms"
+                title="Idioms | Vocabulary | EnglishStu | Learn English"
                 description="English idioms, proverbs, and expressions are an important part of everyday English. They come up all the time in both written and spoken English. Because idioms don't always make sense literally, you'll need to familiarize yourself with the meaning and usage of each idiom. That may seem like a lot of work, but learning idioms is fun, especially when you compare English idioms"
                 keywords={idiomsNames}
             />
 
             <>
+                <Breadcrumb>
+                    <Link href="/">
+                        <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                    </Link>
+                    <Link href="/vocabulary">
+                        <Breadcrumb.Item active>Vocabulary</Breadcrumb.Item>
+                    </Link>
+                    <Link href="/vocabulary/idioms">
+                        <Breadcrumb.Item active>Idioms</Breadcrumb.Item>
+                    </Link>
+                </Breadcrumb>
+                <h1 className="mb-4">Idioms List</h1>
+                <p>
+                    An idiom is a group of words in current usage having a
+                    meaning that is not deducible from those of the individual
+                    words. For example, rain cats and dogs (meaning "rain very
+                    heavily") is an idiom; and over the moon ("extremely happy")
+                    is another idiom. In both cases, you would have a hard time
+                    understanding the real meaning if you did not already know
+                    these idioms!
+                </p>
                 <Row className="mb-2">
                     <Col sm="12" md="6">
                         <Form.Group>
@@ -73,54 +96,58 @@ export default function Idioms({ Idioms }) {
                 <Row>
                     {filteredData?.map((ele, i) => {
                         return (
-                            <ScrollReveal key={i} variants={animateList}>
-                                <motion.div variants={slideUp}>
-                                    <ListGroup>
-                                        <OverlayTrigger
-                                            placement="top-start"
-                                            delay={{
-                                                show: 300,
-                                                hide: 250,
-                                            }}
-                                            overlay={
-                                                <Tooltip id="button-tooltip">
-                                                    {"Ex: " +
-                                                        (ele?.Ex ||
-                                                            "Not available")}
-                                                </Tooltip>
-                                            }
-                                            context={ele.Ex}
-                                            containerPadding={20}
-                                        >
-                                            <ListGroup.Item
-                                                className={`${
-                                                    darkMode ? "text-white" : ""
-                                                } my-2 ${Styles.col}`}
+                            <React.Fragment key={i}>
+                                <ScrollReveal variants={animateList}>
+                                    <motion.div variants={slideUp}>
+                                        <ListGroup>
+                                            <OverlayTrigger
+                                                placement="top-start"
+                                                delay={{
+                                                    show: 300,
+                                                    hide: 250,
+                                                }}
+                                                overlay={
+                                                    <Tooltip id="button-tooltip">
+                                                        {"Ex: " +
+                                                            (ele?.Ex ||
+                                                                "Not available")}
+                                                    </Tooltip>
+                                                }
+                                                context={ele.Ex}
+                                                containerPadding={20}
                                             >
-                                                <Button
-                                                    size="sm"
-                                                    className="bg-transparent shadow-none border-0"
-                                                    onClick={() =>
-                                                        speak({
-                                                            text: ele?.first,
-                                                        })
-                                                    }
+                                                <ListGroup.Item
+                                                    className={`${
+                                                        darkMode
+                                                            ? "text-white"
+                                                            : ""
+                                                    } my-2 ${Styles.col}`}
                                                 >
-                                                    🎤
-                                                </Button>
-                                                <span>
-                                                    {`${i + 1}: `}
-                                                    <ColorSwitcher
-                                                        text={ele?.first}
-                                                    />
-                                                </span>
-                                                {" => "}
-                                                <span>{ele?.second}</span>
-                                            </ListGroup.Item>
-                                        </OverlayTrigger>
-                                    </ListGroup>
-                                </motion.div>
-                            </ScrollReveal>
+                                                    <Button
+                                                        size="sm"
+                                                        className="bg-transparent shadow-none border-0"
+                                                        onClick={() =>
+                                                            speak({
+                                                                text: ele?.first,
+                                                            })
+                                                        }
+                                                    >
+                                                        🎤
+                                                    </Button>
+                                                    <span>
+                                                        {`${i + 1}: `}
+                                                        <ColorSwitcher
+                                                            text={ele?.first}
+                                                        />
+                                                    </span>
+                                                    {" => "}
+                                                    <span>{ele?.second}</span>
+                                                </ListGroup.Item>
+                                            </OverlayTrigger>
+                                        </ListGroup>
+                                    </motion.div>
+                                </ScrollReveal>
+                            </React.Fragment>
                         );
                     })}
                 </Row>
