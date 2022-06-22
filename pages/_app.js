@@ -40,23 +40,23 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             : (docStyle.fontSize = "16px");
     }, []);
 
-    const editCursor = useCallback((e) => {
-        const cursor = document.querySelector(".cursor");
-        const { clientX: x, clientY: y } = e;
-        cursor.style.left = x + "px";
-        cursor.style.top = y + "px";
-    }, []);
+    // const editCursor = useCallback((e) => {
+    //     const cursor = document.querySelector(".cursor");
+    //     const { clientX: x, clientY: y } = e;
+    //     cursor.style.left = x + "px";
+    //     cursor.style.top = y + "px";
+    // }, []);
 
     useEffect(() => {
         window.addEventListener("resize", setSize);
         window.addEventListener("orientationchange", setSize);
-        window.addEventListener("mousemove", editCursor);
+        // window.addEventListener("mousemove", editCursor);
         return () => {
             window.removeEventListener("resize", setSize);
             window.removeEventListener("orientationchange", setSize);
-            window.removeEventListener("mousemove", editCursor);
+            // window.removeEventListener("mousemove", editCursor);
         };
-    }, [editCursor, setSize]);
+    }, [setSize]);
 
     return (
         <SessionProvider session={session}>
@@ -71,8 +71,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                             height={4}
                             showOnShallow={true}
                         />
-                        <div className="cursor"></div>
-
+                        {/* <div className="cursor"></div> */}
                         <Layout>
                             <Component {...pageProps} />
                         </Layout>
