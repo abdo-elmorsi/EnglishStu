@@ -1,425 +1,555 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Card, Row, Table } from "react-bootstrap";
-import { useSelector } from "react-redux";
-import ColorSwitcher from "../../../../components/ColorSwitcher";
-import DataTable from "react-data-table-component";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { Col, Row, Table } from "react-bootstrap";
 
-export default function PastSimple({ data }) {
-    const columns = useMemo(
-        () => [
-            {
-                name: "Affirmative (+)",
-                selector: (row) => row.Affirmative,
-                sortable: true,
-            },
-            {
-                name: "Negative} (-)",
-                selector: (row) => row.Negative,
-                sortable: true,
-            },
-            {
-                name: "Interrogative (?)",
-                selector: (row) => row.Interrogative,
-                sortable: true,
-            },
-            {
-                name: "Arabic",
-                selector: (row) => row.Ar,
-                sortable: true,
-            },
-        ],
-        []
-    );
-    const { darkMode } = useSelector((state) => state.config);
-
-    const [mounted, setMounted] = useState(false);
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+export default function Simple() {
     return (
-        mounted && (
-            <>
-                <Card>
-                    <Card.Header>
-                        <h4 className="w-100  mx-auto mb-5">
-                            The past simple is used to talk about events that
-                            occurred in the past at a specific time.
-                        </h4>
-                    </Card.Header>
-                    <Card.Body>
-                        {/* uses */}
-                        <section>
-                            <p className="ps-0 ps-lg-2 h4">
-                                <ColorSwitcher text="Uses" /> :
-                            </p>
-                            <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                <li className="mb-3">
-                                    the event is
-                                    <ColorSwitcher text="in the past" />
-                                </li>
-                                <li className="mb-3">
-                                    the event is
-                                    <ColorSwitcher text="completely finished" />
-                                </li>
-                                <li className="mb-3">
-                                    we say (or understand) the
-                                    <ColorSwitcher text="time" />
-                                    and/or
-                                    <ColorSwitcher text="place" />
-                                    of the event
-                                </li>
-                            </ol>
-                        </section>
-
-                        {/* first table */}
-                        <section>
-                            <h4 className="mb-3 text-center Header_Line">
-                                <ColorSwitcher text="How do we make the Past Simple" />
-                                ?
-                            </h4>
-                            <small className="mb-4 d-block text-center w-75 mx-auto">
-                                Look at these examples with the main verbs
-                                <ColorSwitcher text={"go"} />
-                                (irregular) and
-                                <ColorSwitcher text={"work"} />
-                                (regular):
-                            </small>
-                            <Table className="mb-5" responsive striped bordered>
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Sub</th>
-                                        <th>Auxiliary (v)</th>
-                                        <th>&nbsp;</th>
-                                        <th>Main (v)</th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                </thead>
+        <>
+            <h1 className="mb-4">Past Simple</h1>
+            <Row>
+                <Col sm="12" lg="6">
+                    {" "}
+                    <p>
+                        The Past Simple tense is sometimes called the "preterite
+                        tense". We can use several tenses and forms to talk
+                        about the past, but the Past Simple tense is the one we
+                        use most often.
+                    </p>
+                    <p>
+                        In this lesson we look at the <strong>structure</strong>{" "}
+                        and <strong>use</strong> of the Past Simple tense,
+                        followed by a <strong>quiz</strong> to check your
+                        understanding.
+                    </p>
+                </Col>
+                <Col sm="12" lg="6" className="text-center">
+                    <Image
+                        src="/assets/images/grammar/tense-past-simple.png"
+                        alt="Past Simple tense"
+                        width="300"
+                        height="200"
+                    />
+                </Col>
+            </Row>
+            <h2>How do we make the Past Simple tense?</h2>
+            <p>There are two basic structures for the Past Simple tense:</p>
+            <p>1. Positive sentences</p>
+            <Table responsive striped bordered>
+                <tbody>
+                    <tr>
+                        <td>subject</td>
+                        <td>+</td>
+                        <td className="text-info">main verb</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td className="text-info">
+                            <strong>Past Simple</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>2. Negative and question sentences</p>
+            <Table responsive striped bordered>
+                <tbody>
+                    <tr>
+                        <td>subject</td>
+                        <td>+</td>
+                        <td className="text-primary">
+                            auxiliary <em>do</em>
+                        </td>
+                        <td>+</td>
+                        <td className="text-info">main verb</td>
+                    </tr>
+                    <tr>
+                        <td rowSpan="2"></td>
+                        <td rowSpan="2"></td>
+                        <td className="text-primary">
+                            conjugated in Past Simple
+                        </td>
+                        <td rowSpan="2"></td>
+                        <td className="text-info">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td className="text-primary">
+                            <strong>did</strong>
+                        </td>
+                        <td className="text-info">
+                            <strong>base</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>
+                Look at these examples with the main verbs <em>go</em>{" "}
+                (irregular) and <em>work</em> (regular):
+            </p>
+            <Table responsive striped bordered>
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>subject</th>
+                        <th className="text-primary">auxiliary verb</th>
+                        <th>&nbsp;</th>
+                        <th className="text-info">main verb</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowSpan="2">+</td>
+                        <td>I</td>
+                        <td className="text-primary">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td className="text-info">went</td>
+                        <td>to school.</td>
+                    </tr>
+                    <tr>
+                        <td>You</td>
+                        <td className="text-primary">&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td className="text-info">worked</td>
+                        <td>very hard.</td>
+                    </tr>
+                    <tr>
+                        <td rowSpan="2">-</td>
+                        <td>She</td>
+                        <td className="text-primary">did</td>
+                        <td>not</td>
+                        <td className="text-info">go</td>
+                        <td>with me.</td>
+                    </tr>
+                    <tr>
+                        <td>We</td>
+                        <td className="text-primary">did</td>
+                        <td>not</td>
+                        <td className="text-info">work</td>
+                        <td>yesterday.</td>
+                    </tr>
+                    <tr>
+                        <td rowSpan="2">?</td>
+                        <td className="text-primary">Did</td>
+                        <td>you</td>
+                        <td>&nbsp;</td>
+                        <td className="text-info">go</td>
+                        <td>to London?</td>
+                    </tr>
+                    <tr>
+                        <td className="text-primary">Did</td>
+                        <td>they</td>
+                        <td>&nbsp;</td>
+                        <td className="text-info">work</td>
+                        <td>at home?</td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>From the above table, notice the following points...</p>
+            <p>For positive sentences:</p>
+            <ul>
+                <li>
+                    There is <strong>no auxiliary verb</strong>.
+                </li>
+                <li>
+                    The main verb is conjugated in the Past Simple, invariable:{" "}
+                    <em>-ed (or irregular)</em>
+                </li>
+            </ul>
+            <p>For negative and question sentences:</p>
+            <ul>
+                <li>
+                    The auxiliary is conjugated in the Past Simple, invariable:{" "}
+                    <em>did</em>
+                </li>
+                <li>
+                    The main verb is invariable in base form: <em>base</em>
+                </li>
+                <li>
+                    For negative sentences, we insert <strong>not</strong>{" "}
+                    between the auxiliary verb and main verb.
+                </li>
+                <li>
+                    For question sentences, we <strong>exchange</strong> the
+                    subject and the auxiliary verb.
+                </li>
+            </ul>
+            <div className="ESTIP">
+                {" "}
+                <strong>Emphatic did</strong>
+                <br />
+                Normally, for positive sentences we do not use the auxiliary{" "}
+                <em>did</em>. But if we want to emphasize (stress) something, or
+                contradict something, we may use it. For example: "I didn't use
+                a spellchecker but I did use a dictionary." Here are some more
+                examples:
+                <ul>
+                    <li >
+                        "Why didn't you go to the party?" / "I did go."
+                    </li>
+                    <li >It did seem a bit strange.</li>
+                    <li >
+                        {" "}
+                        After drinking it I did in fact feel better.
+                    </li>
+                </ul>
+            </div>
+            <h3>
+                Past Simple with main verb <em>be</em>
+            </h3>
+            <p>
+                The structure of the Past Simple with the main verb <em>be</em>{" "}
+                is:
+            </p>
+            <Table responsive striped bordered>
+                <tbody>
+                    <tr>
+                        <td>subject</td>
+                        <td>+</td>
+                        <td className="text-info">
+                            main verb <em>be</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowSpan="2"></td>
+                        <td rowSpan="2"></td>
+                        <td className="text-info">conjugated in Past Simple</td>
+                    </tr>
+                    <tr>
+                        <td className="text-info">
+                            <strong>was, were</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>
+                Look at these examples with the main verb <i>be</i>:
+            </p>
+            <Table responsive striped bordered>
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>subject</th>
+                        <th className="text-info">
+                            main verb <em>be</em>
+                        </th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowSpan="2">+</td>
+                        <td>I, he/she/it</td>
+                        <td className="text-info">was</td>
+                        <td>&nbsp;</td>
+                        <td>here.</td>
+                    </tr>
+                    <tr>
+                        <td>You, we, they</td>
+                        <td className="text-info">were</td>
+                        <td>&nbsp;</td>
+                        <td>in London.</td>
+                    </tr>
+                    <tr>
+                        <td rowSpan="2">-</td>
+                        <td>I, he/she/it</td>
+                        <td className="text-info">was</td>
+                        <td>not</td>
+                        <td>there.</td>
+                    </tr>
+                    <tr>
+                        <td>You, we, they</td>
+                        <td className="text-info">were</td>
+                        <td>not</td>
+                        <td>happy.</td>
+                    </tr>
+                    <tr>
+                        <td rowSpan="2">?</td>
+                        <td className="text-info">Was</td>
+                        <td>I, he/she/it</td>
+                        <td>&nbsp;</td>
+                        <td>right?</td>
+                    </tr>
+                    <tr>
+                        <td className="text-info">Were</td>
+                        <td>you, we, they</td>
+                        <td>&nbsp;</td>
+                        <td>late?</td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>From the above table, notice the following points...</p>
+            <ul>
+                <li>
+                    There is <strong>no auxiliary verb</strong>, even for
+                    questions and negatives.
+                </li>
+                <li>
+                    {" "}
+                    The main verb (be) is conjugated in the Past Simple:{" "}
+                    <em>was, were</em>
+                </li>
+                <li>
+                    For negative sentences, we insert <strong>not</strong> after
+                    the main verb.
+                </li>
+                <li>
+                    For question sentences, we <strong>exchange</strong> the
+                    subject and the main verb.
+                </li>
+            </ul>
+            <h2>How do we use the Past Simple tense?</h2>
+            <p>
+                We use the Past Simple tense to talk about an action or a
+                situation - an event - in the past. The event can be{" "}
+                <strong>short</strong> or <strong>long</strong>.
+            </p>
+            <p>
+                Here are some <strong>short</strong> events with the Past
+                Simple:
+            </p>
+            <Table responsive striped bordered>
+                <tbody>
+                    <tr>
+                        <td colSpan="3" >
+                            The car <strong>exploded</strong> at 9.30am
+                            yesterday.
+                            <br />
+                            She <strong>went</strong> to the door.
+                            <br />
+                            We <strong>did</strong> not <strong>hear</strong>{" "}
+                            the telephone.
+                            <br />
+                            <strong>Did</strong> you <strong>see</strong> that
+                            car?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ width: "33%" }}>
+                            <strong>past</strong>
+                        </td>
+                        <td style={{ width: "33%" }}>
+                            <strong>present</strong>
+                        </td>
+                        <td style={{ width: "33%" }}>
+                            <strong>future</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan="3">
+                            <table>
                                 <tbody>
                                     <tr>
                                         <td
-                                            title="Affirmative"
-                                            rowSpan="2"
-                                            className="text-center"
+                                            className="text-end border-none"
+                                            style={{ width: "33%" }}
                                         >
-                                            +
+                                            <div
+                                                className="timeline"
+                                                style={{ width: "10%" }}
+                                            ></div>
                                         </td>
-                                        <td>I</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>went</td>
-                                        <td>to school.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>You</td>
-                                        <td>&nbsp;</td>
-                                        <td>&nbsp;</td>
-                                        <td>worked</td>
-                                        <td>very hard.</td>
-                                    </tr>
-                                    <tr>
                                         <td
-                                            title="Negative"
-                                            rowSpan="2"
-                                            className="text-center"
+                                            className="text-center border-none"
+                                            style={{ width: "33%" }}
                                         >
-                                            -
+                                            &nbsp;
                                         </td>
-                                        <td>She</td>
-                                        <td>did</td>
-                                        <td className="text-danger">not</td>
-                                        <td>go</td>
-                                        <td>with me.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>We</td>
-                                        <td>did</td>
-                                        <td className="text-danger">not</td>
-                                        <td>work</td>
-                                        <td>yesterday.</td>
-                                    </tr>
-                                    <tr>
                                         <td
-                                            title="Interrogative"
-                                            rowSpan="3"
-                                            className="text-center"
+                                            className="border-none"
+                                            style={{ width: "33%" }}
                                         >
-                                            ?
+                                            &nbsp;
                                         </td>
-                                        <td>Did</td>
-                                        <td>you</td>
-                                        <td>&nbsp;</td>
-                                        <td>go</td>
-                                        <td>to London?</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Did</td>
-                                        <td>they</td>
-                                        <td>&nbsp;</td>
-                                        <td>work</td>
-                                        <td>at home?</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Where did</td>
-                                        <td>she</td>
-                                        <td>&nbsp;</td>
-                                        <td>play</td>
-                                        <td>yesterday.</td>
                                     </tr>
                                 </tbody>
-                            </Table>
-                            <p>
-                                From the above table, notice the following
-                                points :
-                            </p>
-                            {/* Positive */}
-                            <div>
-                                <ColorSwitcher
-                                    className={"ps-0 ps-lg-2 h6"}
-                                    text={"A: For positive sentences"}
-                                />
-
-                                <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                    <li className="mb-3">
-                                        There is no auxiliary verb .
-                                    </li>
-                                    <li className="mb-3">
-                                        The main verb is conjugated in the Past
-                                        Simple, invariable ِِ: -ed (or
-                                        irregular) .
-                                    </li>
-                                </ol>
-                            </div>
-                            {/* negative and question */}
-                            <div>
-                                <ColorSwitcher
-                                    className={"ps-0 ps-lg-2 h6"}
-                                    text={
-                                        "B: For negative and question sentences:"
-                                    }
-                                />
-
-                                <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                    <li className="mb-3">
-                                        The auxiliary is conjugated in the Past
-                                        Simple, invariable : did .
-                                    </li>
-                                    <li className="mb-3">
-                                        For question sentences, we exchange the
-                                        subject and the auxiliary verb .
-                                    </li>
-                                    <li className="mb-3">
-                                        The main verb is invariable in base form
-                                        : base .
-                                    </li>
-                                    <li className="mb-3">
-                                        For negative sentences, we insert not
-                                        between the auxiliary verb and main verb
-                                        .
-                                    </li>
-                                </ol>
-                            </div>
-                        </section>
-                        {/* second table */}
-                        <section>
-                            <h4 className="mb-3 text-center Header_Line">
-                                <ColorSwitcher text="Past Simple with the main verb be :" />
-                            </h4>
-                            <Table
-                                responsive
-                                striped
-                                bordered
-                                style={{ direction: "ltr" }}
-                            >
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>sub</th>
-                                        <th>
-                                            main (v) <em>be</em>
-                                        </th>
-                                        <th></th>
-                                        <th>&nbsp;</th>
-                                    </tr>
-                                </thead>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>The action is in the past.</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>
+                Here are some <strong>long</strong> events with the Past Simple
+                tense:
+            </p>
+            <Table responsive striped bordered>
+                <tbody>
+                    <tr>
+                        <td colSpan="3" >
+                            I <strong>lived</strong> in Bangkok for 10 years.
+                            <br />
+                            The Jurassic period <strong>lasted</strong> about 62
+                            million years.
+                            <br />
+                            We <strong>did</strong> not <strong>sing</strong> at
+                            the concert.
+                            <br />
+                            <strong>Did</strong> you <strong>watch</strong> TV
+                            last night?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style={{ width: "33%" }}>
+                            <strong>past</strong>
+                        </td>
+                        <td style={{ width: "33%" }}>
+                            <strong>present</strong>
+                        </td>
+                        <td style={{ width: "33%" }}>
+                            <strong>future</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colSpan="3">
+                            <Table responsive striped bordered>
                                 <tbody>
                                     <tr>
                                         <td
-                                            title="Affirmative"
-                                            rowSpan="2"
-                                            className="text-center"
+                                            className="text-end border-none"
+                                            style={{ width: "33%" }}
                                         >
-                                            +
+                                            <div
+                                                className="timeline"
+                                                style={{ width: "70%" }}
+                                            ></div>
                                         </td>
-                                        <td>I, he/she/it</td>
-                                        <td>was</td>
-                                        <td></td>
-                                        <td>here.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>You, we, they</td>
-                                        <td>were</td>
-                                        <td>&nbsp;</td>
-                                        <td>in London.</td>
-                                    </tr>
-                                    <tr>
                                         <td
-                                            title="Negative"
-                                            rowSpan="2"
-                                            className="text-center"
+                                            className="text-center border-none"
+                                            style={{ width: "33%" }}
                                         >
-                                            -
+                                            &nbsp;
                                         </td>
-                                        <td>I, he/she/it</td>
-                                        <td>was</td>
-                                        <td className="text-danger">not</td>
-                                        <td>there.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>You, we, they</td>
-                                        <td>were</td>
-                                        <td className="text-danger">not</td>
-                                        <td>happy.</td>
-                                    </tr>
-                                    <tr>
                                         <td
-                                            title="Interrogative"
-                                            rowSpan="2"
-                                            className="text-center"
+                                            className="border-none"
+                                            style={{ width: "33%" }}
                                         >
-                                            ?
+                                            &nbsp;
                                         </td>
-                                        <td>Was</td>
-                                        <td>I, he/she/it</td>
-                                        <td>&nbsp;</td>
-                                        <td>right?</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Were</td>
-                                        <td>you, we, they</td>
-                                        <td>&nbsp;</td>
-                                        <td>late?</td>
                                     </tr>
                                 </tbody>
                             </Table>
-                            {/* describe the table */}
-                            <div>
-                                <p>
-                                    From the above table, notice the following
-                                    points :
-                                </p>
-                                <ol className="ps-5 pb-4 d-flex justify-content-around align-items-center flex-wrap gap-4">
-                                    <li className="mb-3">
-                                        There is no auxiliary verb, even for
-                                        questions and negatives .
-                                    </li>
-                                    <li className="mb-3">
-                                        The main verb (be) is conjugated in the
-                                        Past Simple :
-                                        <ColorSwitcher text="was, were" />
-                                    </li>
-                                    <li className="mb-3">
-                                        For negative sentences, we insert not
-                                        after the main verb .
-                                    </li>
-                                    <li className="mb-3">
-                                        For question sentences, we exchange the
-                                        subject and the main verb .
-                                    </li>
-                                </ol>
-                            </div>
-                        </section>
-                        {/* الكلمات الدلاليه */}
-                        <section>
-                            <h4 className="mb-3 text-center Header_Line">
-                                <ColorSwitcher text={`Tags`} />
-                            </h4>
-
-                            {/* (often, sometimes, always) */}
-                            <div>
-                                <ColorSwitcher
-                                    text={
-                                        "A: Repetition (often, sometimes, always):"
-                                    }
-                                />
-
-                                <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                    <li className="mb-3">
-                                        I
-                                        <ColorSwitcher text="sometimes walked" />
-                                        home at lunchtime.
-                                    </li>
-                                    <li className="mb-3">
-                                        I
-                                        <ColorSwitcher text="often brought" />
-                                        my lunch to school .
-                                    </li>
-                                </ol>
-                            </div>
-                            {/* last week, when I was a child, yesterday, six weeks ago */}
-                            <div>
-                                <ColorSwitcher
-                                    text={
-                                        "B: Specific point in time  (last week, when I was a child, yesterday, six weeks ago):"
-                                    }
-                                />
-
-                                <ol className="d-flex justify-content-flex-start flex-column gap-3">
-                                    <li className="mb-3">
-                                        We saw a good film
-                                        <ColorSwitcher text="last week" />.
-                                    </li>
-                                    <li className="mb-3">
-                                        <ColorSwitcher text="Yesterday" />, I
-                                        arrived in Geneva.
-                                    </li>
-                                    <li className="mb-3">
-                                        She finished her work
-                                        <ColorSwitcher text="at seven o'clock" />
-                                        .
-                                    </li>
-                                    <li className="mb-3">
-                                        I went to the theatre
-                                        <ColorSwitcher text="last week" />
-                                    </li>
-                                </ol>
-                            </div>
-                        </section>
-                        {/* table */}
-                        <h4 className="mb-3 text-center Header_Line">
-                            Examples
-                        </h4>
-                        <Row>
-                            <DataTable
-                                columns={columns}
-                                data={data}
-                                highlightOnHover
-                                theme={`${darkMode && "solarized"}`}
-                                pagination
-                                direction="ltr"
-                            />
-                        </Row>
-                    </Card.Body>
-                </Card>
-            </>
-        )
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>The action is in the past.</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                    </tr>
+                </tbody>
+            </Table>
+            <p>
+                Notice that it does not matter how long ago the event is: it can
+                be a few minutes or seconds in the past, or millions of years in
+                the past. Also it does not matter how long the event is. It can
+                be a few milliseconds (car explosion) or millions of years
+                (Jurassic period). We use the Past Simple tense when:
+            </p>
+            <ul>
+                <li>
+                    the event is <strong>in the past</strong>
+                </li>
+                <li>
+                    the event is <strong>completely finished</strong>
+                </li>
+                <li>
+                    we say (or understand) the <strong>time</strong> and/or{" "}
+                    <strong>place</strong> of the event
+                </li>
+            </ul>
+            <div className="ESTIP">
+                In general, if we say the past <strong>time</strong> or{" "}
+                <strong>place</strong> of the event, we must use the Past Simple
+                tense; we cannot use the present perfect.
+            </div>
+            <p>Here are some more examples:</p>
+            <ul>
+                <li>
+                    I <strong>lived</strong> in that house when I was young.
+                </li>
+                <li>
+                    He <strong>did</strong>n't <strong>like</strong> the movie.
+                </li>
+                <li>
+                    What <strong>did</strong> you <strong>eat</strong> for
+                    dinner?
+                </li>
+                <li>
+                    John <strong>drove</strong> to London on Monday.
+                </li>
+                <li>
+                    Mary <strong>did</strong> not <strong>go</strong> to work
+                    yesterday.
+                </li>
+                <li>
+                    <strong>Did</strong> you <strong>play</strong> tennis last
+                    week?
+                </li>
+                <li>
+                    I <strong>was</strong> at work yesterday.
+                </li>
+                <li>
+                    We <strong>were</strong> not late (for the train).
+                </li>
+                <li>
+                    <strong>Were</strong> you angry?
+                </li>
+            </ul>
+            <p>
+                Note that when we tell a story, we usually use the Past Simple.
+                We may start with the Past Continuous tense to "set the scene",
+                but we almost always use the Past Simple tense for the action.
+                Look at this example of the beginning of a story:
+            </p>
+            <div className="es-panel-example">
+                {" "}
+                "The wind <em>was howling</em> around the hotel and the rain{" "}
+                <em>was pouring down</em>. It <strong>was</strong> cold. The
+                door <strong>opened</strong> and James Bond{" "}
+                <strong>entered</strong>. He <strong>took off</strong> his coat,
+                which <strong>was</strong> very wet, and{" "}
+                <strong>ordered</strong> a drink at the bar. He{" "}
+                <strong>sat down</strong> in the corner of the lounge and
+                quietly <strong>drank</strong> his..."
+            </div>
+            <div className="ESTIP">
+                This page shows the use of the Past Simple tense to talk about
+                past events. But note that there are some other uses for the
+                Past Simple, for example in{" "}
+                <a href="verbs-conditional-second.htm">
+                    conditional or <strong>if</strong> sentences
+                </a>
+                .
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link href="continuous">
+                            <a>Past Continuous</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="perfect">
+                            <a>Past Perfect</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="perfect-continuous">
+                            <a>Past Perfect Continuous</a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="quizzes">
+                            <a>Past Simple Quizs</a>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
+        </>
     );
-}
-
-// Fetch Tenses Data ##################################
-export async function getStaticProps() {
-    let data = [];
-    try {
-        const res = await fetch(
-            `${process.env.API_URL}/api/Tenses/Examples/Past/Simple`
-        );
-        data = await res.json();
-    } catch (error) {
-        console.error(error);
-    }
-    return {
-        props: {
-            data,
-        }, // will be passed to the page component as props
-    };
 }

@@ -1,4 +1,4 @@
-import data from "/data/TensesExs/Past/Perfect.js";
+import data from "/data/TensesExs/Past/perfect.js";
 
 export default function handler(req, res) {
     if (req.method === "GET") {

@@ -47,6 +47,14 @@ body::-webkit-scrollbar-thumb {
     color: $blue;
     font-weight: bold;
 }
+.es-panel-example {
+    background: #dff9c5;
+    padding: 1em;
+    margin: 1em 0;
+    display: table;
+    border: 2px solid #ececec;
+    width: 90%;
+}
 // scroll to top
 .progress-wrap {
     position: fixed;

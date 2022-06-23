@@ -1,4 +1,4 @@
-import data from "/data/TensesTitles/future.js";
+import data from "/data/TensesExs/Past/simple.js";
 
 export default function handler(req, res) {
     if (req.method === "GET") {
