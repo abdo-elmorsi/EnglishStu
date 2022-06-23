@@ -31,7 +31,7 @@ export default function SynonymsAndAntonyms() {
                 the same language. For example, "close" is a synonym of "shut".
             </p>
 
-            <div className="TIP">
+            <div className="ESTIP">
                 Note that a synonym may share an identical meaning with another
                 word, but the two words are not necessarily interchangeable. For
                 example, "blow up" and "explode" have the same meaning, but

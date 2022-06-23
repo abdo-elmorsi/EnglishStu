@@ -96,11 +96,11 @@ const HorizontalNav = () => {
                             </Link>
                         </Nav.Item>
                         <Nav.Item as="li">
-                            <Link href="/grammar/verb-tenses">
+                            <Link href="/grammar/tenses">
                                 <a
                                     className={`${
                                         router.pathname ===
-                                        "/grammar/verb-tenses"
+                                        "/grammar/tenses"
                                             ? "active"
                                             : ""
                                     } nav-link `}

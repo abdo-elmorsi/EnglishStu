@@ -58,10 +58,10 @@ export default function ShortLink() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/grammar/verb-tenses">
+                    <Link href="/grammar/tenses">
                         <a
                             className={`${
-                                pathname === "/grammar/verb-tenses" &&
+                                pathname === "/grammar/tenses" &&
                                 "text-secondary"
                             }`}
                         >

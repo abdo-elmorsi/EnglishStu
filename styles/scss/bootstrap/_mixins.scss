@@ -11,7 +11,6 @@
 // Helpers
 @import "mixins/breakpoints";
 @import "mixins/color-scheme";
-@import "mixins/image";
 @import "mixins/resize";
 @import "mixins/visually-hidden";
 @import "mixins/reset-text";
@@ -21,11 +20,9 @@
 @import "mixins/utilities";
 
 // Components
-@import "mixins/alert";
 @import "mixins/backdrop";
 @import "mixins/buttons";
 @import "mixins/caret";
-@import "mixins/pagination";
 @import "mixins/lists";
 @import "mixins/list-group";
 @import "mixins/forms";

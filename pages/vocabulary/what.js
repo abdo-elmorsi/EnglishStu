@@ -78,7 +78,7 @@ export default function Regular() {
                 </li>
             </ul>
 
-            <div className="TIP">
+            <div className="ESTIP">
                 When learning a foreign language, our individual vocabulary in
                 that language is one of the most important micro-skills to
                 develop. Of course, all micro-skills like grammar, vocabulary

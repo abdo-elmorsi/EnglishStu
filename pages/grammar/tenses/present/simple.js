@@ -19,51 +19,51 @@ export default function Simple() {
                     the addition of <strong>s</strong> for third person
                     singular.
                 </p>
-                <h2 id="structure">How do we make the Present Simple tense?</h2>
+                <h2>How do we make the Present Simple tense?</h2>
                 <p>There are two basic structures for the Present Simple:</p>
                 <p>1. Positive sentences</p>
-                <Table responsive striped bordered className="ec-table">
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>subject</td>
                             <td>+</td>
-                            <td className="bg-accent-3">main verb</td>
+                            <td className="text-primary">main verb</td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
-                            <td className="bg-accent-3">
+                            <td className="text-primary">
                                 <strong>Present Simple</strong>
                             </td>
                         </tr>
                     </tbody>
                 </Table>
                 <p>2. Negative and question sentences</p>
-                <Table responsive striped bordered className="ec-table">
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>subject</td>
                             <td>+</td>
-                            <td className="bg-accent-1">
+                            <td className="text-info">
                                 auxiliary <em>do</em>
                             </td>
                             <td>+</td>
-                            <td className="bg-accent-3">main verb</td>
+                            <td className="text-primary">main verb</td>
                         </tr>
                         <tr>
                             <td rowSpan="2"></td>
                             <td rowSpan="2"></td>
-                            <td className="bg-accent-1">
+                            <td className="text-info">
                                 conjugated in Present Simple
                             </td>
                             <td rowSpan="2"></td>
-                            <td className="bg-accent-3">&nbsp;</td>
+                            <td className="text-primary">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td className="bg-accent-1">
+                            <td className="text-info">
                                 <strong>do, does</strong>
                             </td>
-                            <td className="bg-accent-3">
+                            <td className="text-primary">
                                 <strong>base</strong>
                             </td>
                         </tr>
@@ -72,18 +72,18 @@ export default function Simple() {
                 <p>
                     Look at these examples with the main verb <i>like</i>:
                 </p>
-                <Table responsive striped bordered className="ec-table">
+                <Table responsive striped bordered>
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
                             <th>
                                 <strong>subject</strong>
                             </th>
-                            <th className="bg-accent-1">
+                            <th className="text-info">
                                 <strong>auxiliary verb</strong>
                             </th>
                             <th>&nbsp;</th>
-                            <th className="bg-accent-3">
+                            <th className="text-primary">
                                 <strong>main verb</strong>
                             </th>
                             <th>&nbsp;</th>
@@ -93,16 +93,16 @@ export default function Simple() {
                         <tr>
                             <td rowSpan="2">+</td>
                             <td>I, you, we, they</td>
-                            <td className="bg-accent-1"></td>
+                            <td className="text-info"></td>
                             <td>&nbsp;</td>
-                            <td className="bg-accent-3">like</td>
+                            <td className="text-primary">like</td>
                             <td>coffee.</td>
                         </tr>
                         <tr>
                             <td>He, she, it</td>
-                            <td className="bg-accent-1"></td>
+                            <td className="text-info"></td>
                             <td>&nbsp;</td>
-                            <td className="bg-accent-3">
+                            <td className="text-primary">
                                 like<strong>s</strong>
                             </td>
                             <td>coffee.</td>
@@ -110,35 +110,35 @@ export default function Simple() {
                         <tr>
                             <td rowSpan="2">-</td>
                             <td>I, you, we, they</td>
-                            <td className="bg-accent-1">do</td>
+                            <td className="text-info">do</td>
                             <td>not</td>
-                            <td className="bg-accent-3">like</td>
+                            <td className="text-primary">like</td>
                             <td>coffee.</td>
                         </tr>
                         <tr>
                             <td>He, she, it</td>
-                            <td className="bg-accent-1">
+                            <td className="text-info">
                                 do<strong>es</strong>
                             </td>
                             <td>not</td>
-                            <td className="bg-accent-3">like</td>
+                            <td className="text-primary">like</td>
                             <td>coffee.</td>
                         </tr>
                         <tr>
                             <td rowSpan="2">?</td>
-                            <td className="bg-accent-1">Do</td>
+                            <td className="text-info">Do</td>
                             <td>I, you, we, they</td>
                             <td>&nbsp;</td>
-                            <td className="bg-accent-3">like</td>
+                            <td className="text-primary">like</td>
                             <td>coffee?</td>
                         </tr>
                         <tr>
-                            <td className="bg-accent-1">
+                            <td className="text-info">
                                 Do<strong>es</strong>
                             </td>
                             <td>he, she, it</td>
                             <td>&nbsp;</td>
-                            <td className="bg-accent-3">like</td>
+                            <td className="text-primary">like</td>
                             <td>coffee?</td>
                         </tr>
                     </tbody>
@@ -172,7 +172,7 @@ export default function Simple() {
                         subject and the auxiliary verb.
                     </li>
                 </ul>
-                <div className="ECtip">
+                <div className="ESTIP">
                     {" "}
                     <strong>
                         Emphatic <em>do</em>
@@ -199,24 +199,24 @@ export default function Simple() {
                     The structure of the Present Simple with the main verb{" "}
                     <em>be</em> is:
                 </p>
-                <Table responsive striped bordered className="ec-table">
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
                             <td>subject</td>
                             <td>+</td>
-                            <td className="bg-accent-3">
+                            <td className="text-primary">
                                 main verb <em>be</em>
                             </td>
                         </tr>
                         <tr>
                             <td rowSpan="2"></td>
                             <td rowSpan="2"></td>
-                            <td className="bg-accent-3">
+                            <td className="text-primary">
                                 conjugated in Present Simple
                             </td>
                         </tr>
                         <tr>
-                            <td className="bg-accent-3">
+                            <td className="text-primary">
                                 <strong>am, are, is</strong>
                             </td>
                         </tr>
@@ -225,14 +225,14 @@ export default function Simple() {
                 <p>
                     Look at these examples with the main verb <i>be</i>:
                 </p>
-                <Table responsive striped bordered className="ec-table">
+                <Table responsive striped bordered>
                     <thead>
                         <tr>
                             <th>&nbsp;</th>
                             <th>
                                 <strong>subject</strong>
                             </th>
-                            <th className="bg-accent-3">
+                            <th className="text-primary">
                                 <strong>
                                     main verb <em>be</em>
                                 </strong>
@@ -245,56 +245,56 @@ export default function Simple() {
                         <tr>
                             <td rowSpan="3">+</td>
                             <td>I</td>
-                            <td className="bg-accent-3">am</td>
+                            <td className="text-primary">am</td>
                             <td>&nbsp;</td>
                             <td>French.</td>
                         </tr>
                         <tr>
                             <td>You, we, they</td>
-                            <td className="bg-accent-3">are</td>
+                            <td className="text-primary">are</td>
                             <td>&nbsp;</td>
                             <td>French.</td>
                         </tr>
                         <tr>
                             <td>He, she, it</td>
-                            <td className="bg-accent-3">is</td>
+                            <td className="text-primary">is</td>
                             <td>&nbsp;</td>
                             <td>French.</td>
                         </tr>
                         <tr>
                             <td rowSpan="3">-</td>
                             <td>I</td>
-                            <td className="bg-accent-3">am</td>
+                            <td className="text-primary">am</td>
                             <td>not</td>
                             <td>old.</td>
                         </tr>
                         <tr>
                             <td>You, we, they</td>
-                            <td className="bg-accent-3">are</td>
+                            <td className="text-primary">are</td>
                             <td>not</td>
                             <td>old.</td>
                         </tr>
                         <tr>
                             <td>He, she, it</td>
-                            <td className="bg-accent-3">is</td>
+                            <td className="text-primary">is</td>
                             <td>not</td>
                             <td>old.</td>
                         </tr>
                         <tr>
                             <td rowSpan="3">?</td>
-                            <td className="bg-accent-3">Am</td>
+                            <td className="text-primary">Am</td>
                             <td>I</td>
                             <td>&nbsp;</td>
                             <td>late?</td>
                         </tr>
                         <tr>
-                            <td className="bg-accent-3">Are</td>
+                            <td className="text-primary">Are</td>
                             <td>you, we, they</td>
                             <td>&nbsp;</td>
                             <td>late?</td>
                         </tr>
                         <tr>
-                            <td className="bg-accent-3">Is</td>
+                            <td className="text-primary">Is</td>
                             <td>he, she, it</td>
                             <td>&nbsp;</td>
                             <td>late?</td>
@@ -344,10 +344,10 @@ export default function Simple() {
                     <li>the action is not only happening now</li>
                     <li>the statement is always true</li>
                 </ul>
-                <Table responsive striped bordered >
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
-                            <td colSpan="3" className="bg-example">
+                            <td colSpan="3">
                                 John <strong>drives</strong> a taxi.
                             </td>
                         </tr>
@@ -398,10 +398,10 @@ export default function Simple() {
                     these verbs with the Present Simple tense to talk about a
                     situation at the present time, not general.
                 </p>
-                <Table responsive striped bordered >
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
-                            <td colSpan="3" className="bg-example">
+                            <td colSpan="3">
                                 I <strong>want</strong> a coffee.
                                 <br />
                                 That <strong>sounds</strong> interesting.
@@ -446,10 +446,10 @@ export default function Simple() {
                     - some are <strong>general</strong> and some are{" "}
                     <strong>now</strong>:
                 </p>
-                <Table responsive striped bordered >
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
-                            <td colSpan="3" className="bg-example">
+                            <td colSpan="3">
                                 I <strong>am</strong> not fat.
                                 <br />
                                 Why <strong>are</strong> you so beautiful?
@@ -484,10 +484,10 @@ export default function Simple() {
                         </tr>
                     </tbody>
                 </Table>
-                <Table responsive striped bordered >
+                <Table responsive striped bordered>
                     <tbody>
                         <tr>
-                            <td colSpan="3" className="bg-example">
+                            <td colSpan="3">
                                 <strong>Am</strong> I right?
                                 <br />
                                 Tara <strong>is</strong> not at home.
@@ -521,28 +521,36 @@ export default function Simple() {
                         </tr>
                     </tbody>
                 </Table>
-                <div className="ECtip">
+                <div className="ESTIP">
                     This page shows the use of the Present Simple tense to talk
                     about <strong>now</strong> and about{" "}
                     <strong>general time</strong>. But note that there are other
-                    uses for the Present Simple, for example in the{" "}
-                    <Link href="https://www.englishclub.com/grammar/verbs-conditional-zero.htm">
-                        <a>zero conditional</a>
-                    </Link>{" "}
-                    or to{" "}
-                    <Link href="https://www.englishclub.com/grammar/verbs-m_future.htm">
-                        <a> talk about the future</a>
-                    </Link>
-                    .
+                    uses for the Present Simple .
                 </div>
 
                 <nav>
-                    <a
-                        className="arrowNext"
-                        href="verb-tenses_present-simple_quiz.htm"
-                    >
-                        Present Simple Quizs
-                    </a>
+                    <ul>
+                        <li>
+                            <Link href="continuous">
+                                <a>Present Continuous</a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="perfect">
+                                <a>Present Perfect</a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="perfect-continuous">
+                                <a>Present Perfect Continuous</a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="quizzes">
+                                <a>Present Simple Quizs</a>
+                            </Link>
+                        </li>
+                    </ul>
                 </nav>
             </Card.Body>
         </Card>

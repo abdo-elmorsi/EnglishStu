@@ -9,7 +9,6 @@
 
 @import "./hope-ui-design-system/helper/fonts";
 
-
 // Configuration
 @import "./bootstrap/functions";
 
@@ -31,7 +30,6 @@
 @import "./bootstrap/root";
 @import "./bootstrap/reboot";
 @import "./bootstrap/type";
-@import "./bootstrap/images";
 @import "./bootstrap/containers";
 @import "./bootstrap/grid";
 @import "./bootstrap/tables";
@@ -45,13 +43,10 @@
 @import "./bootstrap/card";
 @import "./bootstrap/accordion";
 @import "./bootstrap/breadcrumb";
-@import "./bootstrap/pagination";
 @import "./bootstrap/badge";
-@import "./bootstrap/alert";
 @import "./bootstrap/progress";
 @import "./bootstrap/list-group";
 @import "./bootstrap/close";
-@import "./bootstrap/toasts";
 @import "./bootstrap/modal";
 @import "./bootstrap/tooltip";
 @import "./bootstrap/popover";
@@ -67,6 +62,4 @@
 
 // Extra Components and Utilities and plugins
 @import "./hope-ui-design-system/components/components";
-@import "./hope-ui-design-system/layout-style/index";
 @import "./hope-ui-design-system/helper/utilities";
-@import "./hope-ui-design-system/plugins/plugins";

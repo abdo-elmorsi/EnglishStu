@@ -1,6 +1,6 @@
 const data = [
     {
-        title: "past_tense",
+        title: "Past Tense",
         image: "/assets/images/tenses.jpeg",
         desc: "A tense expressing an action that has happened or a state that previously existed",
         link: "grammar/tenses/past",
