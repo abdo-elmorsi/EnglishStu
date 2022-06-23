@@ -3,9 +3,9 @@
 @import "./scss/custom.scss";
 @import "./scss/customizer.scss";
 
-* {
-    cursor: none !important;
-}
+// * {
+//     cursor: none !important;
+// }
 body,
 html,
 :root {
@@ -50,17 +50,17 @@ body::-webkit-scrollbar-thumb {
     font-weight: bold;
 }
 
-.cursor {
-    position: fixed;
-    background: $secondary;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border-radius: 50%;
-    will-change: transform;
-    pointer-events: none;
-    z-index: 10000;
-}
+// .cursor {
+//     position: fixed;
+//     background: $secondary;
+//     width: 20px;
+//     height: 20px;
+//     margin: -10px 0 0 -10px;
+//     border-radius: 50%;
+//     will-change: transform;
+//     pointer-events: none;
+//     z-index: 10000;
+// }
 ::selection {
     color: $dark;
     background: $blue;
