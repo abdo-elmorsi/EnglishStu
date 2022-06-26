@@ -84,16 +84,13 @@ export default function What() {
             </p>
 
             <nav>
-                <Link  href="/grammar">
+                <Link href="/grammar">
                     <a>Grammar</a>
                 </Link>
             </nav>
 
-            <nav >
-                <Link
-                    href="https://englishStu.vercel.app"
-                    title="Go to EnglishStu home page"
-                >
+            <nav>
+                <Link href="/" title="Go to EnglishStu home page">
                     <a>EnglishStu</a>
                 </Link>{" "}
                 :

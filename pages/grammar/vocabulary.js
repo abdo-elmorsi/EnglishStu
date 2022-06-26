@@ -169,7 +169,7 @@ export default function vocabulary() {
 
             <nav >
                 <Link
-                    href="https://englishStu.vercel.app"
+                    href="/"
                     title="Go to EnglishStu home page"
                 >
                     <a>EnglishStu</a>
