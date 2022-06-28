@@ -1,10 +1,6 @@
 @import "./scss/hope-ui.scss";
 @import "./scss/dark.scss";
 
-// * {
-//     cursor: none !important;
-// }
-
 body,
 html,
 :root {
@@ -24,6 +20,10 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
     background: linear-gradient(-120deg, #485460, #84898f);
 }
+::selection {
+    color: white;
+    background: $blue;
+}
 
 // @import "./scss/custom/dark/index";
 #nprogress .spinner {
@@ -32,6 +32,7 @@ body::-webkit-scrollbar-thumb {
 .breadcrumb-item.active {
     cursor: pointer;
 }
+// English Stu Tips
 .ESTIP {
     display: block;
     background: #c0c0c0;
@@ -123,21 +124,7 @@ body::-webkit-scrollbar-thumb {
     margin: 0 auto;
     background-color: $info;
 }
-// .cursor {
-//     position: fixed;
-//     background: $secondary;
-//     width: 20px;
-//     height: 20px;
-//     margin: -10px 0 0 -10px;
-//     border-radius: 50%;
-//     will-change: transform;
-//     pointer-events: none;
-//     z-index: 10000;
-// }
-::selection {
-    color: white;
-    background: $blue;
-}
+
 // remove input type number arrows
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

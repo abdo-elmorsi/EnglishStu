@@ -89,7 +89,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="verbs.htm">Verb</a>
+                                    <a href="verbs">Verb</a>
                                 </strong>
                             </td>
                             <td>action or state</td>
@@ -104,7 +104,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="nouns.htm">Noun</a>
+                                    <a href="nouns">Noun</a>
                                 </strong>
                             </td>
                             <td>thing or person</td>
@@ -121,7 +121,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="adjectives.htm">Adjective</a>
+                                    <a href="adjectives">Adjective</a>
                                 </strong>
                             </td>
                             <td>describes a noun</td>
@@ -133,7 +133,7 @@ export default function PartOfSpetch() {
                         </tr>
                         <tr>
                             <td>
-                                <a href="determiners.htm">
+                                <a href="determiners">
                                     <strong>Determiner</strong>
                                 </a>
                             </td>
@@ -147,7 +147,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="adverbs.htm">Adverb</a>
+                                    <a href="adverbs">Adverb</a>
                                 </strong>
                             </td>
                             <td>describes a verb, adjective or adverb</td>
@@ -163,7 +163,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="pronouns.htm">Pronoun</a>
+                                    <a href="pronouns">Pronoun</a>
                                 </strong>
                             </td>
                             <td>replaces a noun</td>
@@ -176,7 +176,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="prepositions.htm">Preposition</a>
+                                    <a href="prepositions">Preposition</a>
                                 </strong>
                             </td>
                             <td>links a noun to another word</td>
@@ -189,7 +189,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="conjunctions.htm">Conjunction</a>
+                                    <a href="conjunctions">Conjunction</a>
                                 </strong>
                             </td>
                             <td>joins clauses or sentences or words</td>
@@ -203,7 +203,7 @@ export default function PartOfSpetch() {
                         <tr>
                             <td>
                                 <strong>
-                                    <a href="interjections.htm">Interjection</a>
+                                    <a href="interjections">Interjection</a>
                                 </strong>
                             </td>
                             <td>

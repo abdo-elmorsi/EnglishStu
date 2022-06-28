@@ -11,7 +11,6 @@ import HorizontalNav from "./horizontal-nav";
 
 const HeaderStyle3 = () => {
     const { data, status } = useSession();
-    // const { data, status } = useSession({ required: true });
     const { config } = useSelector((state) => state);
     const dispatch = useDispatch();
 
@@ -251,10 +250,10 @@ const HeaderStyle3 = () => {
                                     />
                                     <div className="caption ms-3 d-none d-md-block text-start">
                                         <h5 className="caption-title">
-                                            {data ? data.user.name : "Gust"}
+                                            {data ? data?.user?.name : "Gust"}
                                         </h5>
                                         <span className="caption-sub-title">
-                                            {data && data.user.email}
+                                            {data && data?.user?.email}
                                         </span>
                                     </div>
                                 </Dropdown.Toggle>
@@ -265,6 +264,17 @@ const HeaderStyle3 = () => {
                                 >
                                     <Dropdown.Divider />
                                     {status !== "loading" &&
+                                        data?.user?.email ==
+                                            "abdelrahmandiv@gmail.com" && (
+                                            <Dropdown.Item className="px-0">
+                                                <Link href={"/admin"}>
+                                                    <a className="d-block dropdown-item">
+                                                        Admin
+                                                    </a>
+                                                </Link>
+                                            </Dropdown.Item>
+                                        )}
+                                    {status !== "loading" &&
                                         (status !== "authenticated" ? (
                                             <Dropdown.Item
                                                 as={"button"}
@@ -272,7 +282,7 @@ const HeaderStyle3 = () => {
                                                 className="px-0"
                                             >
                                                 <a className="d-block dropdown-item">
-                                                    SignIn
+                                                    Sign In
                                                 </a>
                                             </Dropdown.Item>
                                         ) : (
@@ -282,7 +292,7 @@ const HeaderStyle3 = () => {
                                                 className="px-0"
                                             >
                                                 <a className="d-block dropdown-item">
-                                                    SignOut
+                                                    Sign Out
                                                 </a>
                                             </Dropdown.Item>
                                         ))}

@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 const HorizontalNav = () => {
     //router
-    let router = useRouter();
+    let { pathname } = useRouter();
 
     return (
         <>
@@ -20,7 +20,7 @@ const HorizontalNav = () => {
                             <Link href="/">
                                 <a
                                     className={`${
-                                        router.pathname === "/" ? "active" : ""
+                                        pathname === "/" ? "active" : ""
                                     } nav-link `}
                                     style={{
                                         minWidth: "max-content",
@@ -34,9 +34,7 @@ const HorizontalNav = () => {
                             <Link href="/grammar">
                                 <a
                                     className={`${
-                                        router.pathname === "/grammar"
-                                            ? "active"
-                                            : ""
+                                        pathname === "/grammar" ? "active" : ""
                                     } nav-link `}
                                     style={{
                                         minWidth: "max-content",
@@ -50,7 +48,7 @@ const HorizontalNav = () => {
                             <Link href="/vocabulary">
                                 <a
                                     className={`${
-                                        router.pathname === "/vocabulary"
+                                        pathname === "/vocabulary"
                                             ? "active"
                                             : ""
                                     } nav-link `}
@@ -66,9 +64,7 @@ const HorizontalNav = () => {
                             <Link href="/kids">
                                 <a
                                     className={`${
-                                        router.pathname === "/kids"
-                                            ? "active"
-                                            : ""
+                                        pathname === "/kids" ? "active" : ""
                                     } nav-link `}
                                     style={{
                                         minWidth: "max-content",
@@ -82,8 +78,7 @@ const HorizontalNav = () => {
                             <Link href="/vocabulary/collocations">
                                 <a
                                     className={`${
-                                        router.pathname ===
-                                        "/vocabulary/collocations"
+                                        pathname === "/vocabulary/collocations"
                                             ? "active"
                                             : ""
                                     } nav-link `}
@@ -99,8 +94,7 @@ const HorizontalNav = () => {
                             <Link href="/grammar/tenses">
                                 <a
                                     className={`${
-                                        router.pathname ===
-                                        "/grammar/tenses"
+                                        pathname === "/grammar/tenses"
                                             ? "active"
                                             : ""
                                     } nav-link `}
@@ -116,7 +110,7 @@ const HorizontalNav = () => {
                             <Link href="/vocabulary/idioms">
                                 <a
                                     className={`${
-                                        router.pathname === "/vocabulary/idioms"
+                                        pathname === "/vocabulary/idioms"
                                             ? "active"
                                             : ""
                                     } nav-link `}

@@ -15,6 +15,8 @@ import { SessionProvider } from "next-auth/react";
 
 import Layout from "../layout";
 import Meta from "../components/meta";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     createTheme(
@@ -98,24 +100,41 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                             height={4}
                             showOnShallow={true}
                         />
+                        <ToastContainer
+                            position="top-center"
+                            autoClose={4000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                        />
                         <Layout>
                             <Component {...pageProps} />
                         </Layout>
                         <div onClick={ScrollToTop} className="progress-wrap">
-                            <FaArrowUp
-                                title="scroll to top"
-                                size={"1em"}
-                                className="iconify"
-                            />
-                            <svg
-                                className="progress-circle"
-                                width="100%"
-                                height="100%"
-                                viewBox="-1 -1 102 102"
-                            >
-                                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
-                            </svg>
+                            <div>
+                                <FaArrowUp
+                                    title="scroll to top"
+                                    size={"1em"}
+                                    className="iconify"
+                                />
+                            </div>
+                            <div>
+                                <svg
+                                    className="progress-circle"
+                                    width="100%"
+                                    height="100%"
+                                    viewBox="-1 -1 102 102"
+                                >
+                                    <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+                                </svg>
+                            </div>
                         </div>
+                        {process.env.NODE_ENV === "production" && (
+                            <p id="development">{`You may find some mistakes because it's still under development`}</p>
+                        )}
                     </Provider>
                 </SSRProvider>
             </ThemeProvider>
