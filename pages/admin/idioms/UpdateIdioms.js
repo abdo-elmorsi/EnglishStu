@@ -7,9 +7,9 @@ import DataServices from "../../../lib/firebase/services";
 
 const UpdateIdioms = ({ status }) => {
     const [UpdateData, setUpdateData] = useState({
-        first: status.first,
-        second: status.second,
-        Ex: status.Ex,
+        first: status?.first,
+        second: status?.second,
+        Ex: status?.Ex,
     });
 
     const [show, setShow] = useState(false);
@@ -24,15 +24,15 @@ const UpdateIdioms = ({ status }) => {
         formState: { errors },
     } = useForm();
     const onSubmit = async () => {
-        if (UpdateData.first && UpdateData.second) {
+        if (UpdateData?.first && UpdateData?.second) {
             const Data = {
-                first: UpdateData.first,
-                second: UpdateData.second,
+                first: UpdateData?.first,
+                second: UpdateData?.second,
                 Ex: UpdateData.Ex || "Not available",
             };
             try {
                 await DataServices.updateItem("Idioms", status.id, Data);
-                toast.success(`Idioms ( ${Data.first} ) is  updated`);
+                toast.success(`Idioms ( ${Data?.first} ) is  updated`);
             } catch (error) {
                 console.log(error);
                 toast.error("Sorry there is an error");
@@ -45,7 +45,7 @@ const UpdateIdioms = ({ status }) => {
     const handleDelete = async (id) => {
         try {
             await DataServices.deleteItem("Idioms", id);
-            toast.success(`Idiom ( ${status.first} ) is deleted`);
+            toast.success(`Idiom ( ${status?.first} ) is deleted`);
         } catch (error) {
             console.log(error);
             toast.error("Sorry there is an error");
@@ -117,7 +117,7 @@ const UpdateIdioms = ({ status }) => {
                                 })}
                                 autoFocus
                                 name="first"
-                                value={UpdateData.first}
+                                value={UpdateData?.first}
                                 onChange={(e) =>
                                     setUpdateData({
                                         ...UpdateData,
@@ -140,7 +140,7 @@ const UpdateIdioms = ({ status }) => {
                                     required: "The description is requird",
                                 })}
                                 name="second"
-                                value={UpdateData.second}
+                                value={UpdateData?.second}
                                 onChange={(e) =>
                                     setUpdateData({
                                         ...UpdateData,
@@ -161,7 +161,7 @@ const UpdateIdioms = ({ status }) => {
                             <Form.Control
                                 {...register("Ex")}
                                 name="Ex"
-                                value={UpdateData.Ex}
+                                value={UpdateData?.Ex}
                                 onChange={(e) =>
                                     setUpdateData({
                                         ...UpdateData,
