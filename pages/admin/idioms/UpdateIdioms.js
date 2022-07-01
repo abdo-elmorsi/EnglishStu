@@ -23,9 +23,9 @@ const UpdateIdioms = ({ status }) => {
     } = useForm({
         mode: "onBlur",
         defaultValues: {
-            first: status.first,
-            second: status.second,
-            Ex: status.Ex,
+            first: status?.first,
+            second: status?.second,
+            Ex: status?.Ex,
         },
     });
     const onSubmit = async (data) => {

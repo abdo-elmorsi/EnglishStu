@@ -23,12 +23,12 @@ const UpdateIdioms = ({ status }) => {
     } = useForm({
         mode: "onBlur",
         defaultValues: {
-            NameEn: status.en.Name,
-            ExEn: status.en.Ex,
-            DescEn: status.en.Desc,
-            NameAr: status.ar.Name,
-            ExAr: status.ar.Ex,
-            DescAr: status.ar.Desc,
+            NameEn: status?.en.Name,
+            ExEn: status?.en.Ex,
+            DescEn: status?.en.Desc,
+            NameAr: status?.ar.Name,
+            ExAr: status?.ar.Ex,
+            DescAr: status?.ar.Desc,
         },
     });
     const onSubmit = async ({ NameEn, ExEn, DescEn, NameAr, ExAr, DescAr }) => {
