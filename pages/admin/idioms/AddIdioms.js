@@ -9,31 +9,33 @@ const Addidioms = () => {
     const [show, setShow] = useState(false);
     const { darkMode } = useSelector((state) => state.config);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+        reset();
+    };
     const handleShow = () => setShow(true);
 
     const {
         register,
         handleSubmit,
         formState: { errors },
-    } = useForm();
+        reset,
+    } = useForm({ mode: "onBlur" });
     const onSubmit = async (data) => {
-        if (data.first && data.second) {
-            const Data = {
-                first: data.first,
-                second: data.second,
-                Ex: data.Ex || "Not available",
-            };
-            try {
-                await DataServices.addItem("Idioms", Data).then(() => {
-                    toast.success(`Idioms ( ${Data.first} ) is  added`);
-                });
-            } catch (error) {
-                console.log(error);
-                toast.error("Sorry there is an error");
-            }
-            handleClose();
+        const Data = {
+            first: data.first,
+            second: data.second,
+            Ex: data.Ex || "Not available",
+        };
+        try {
+            await DataServices.addItem("Idioms", Data).then(() => {
+                toast.success(`Idiom ( ${Data.first} ) is  added`);
+            });
+        } catch (error) {
+            console.log(error);
+            toast.error("Sorry there is an error");
         }
+        handleClose();
     };
     return (
         <>

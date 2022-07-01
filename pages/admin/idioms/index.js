@@ -8,15 +8,7 @@ import AddIdioms from "./AddIdioms";
 import UpdateIdioms from "./UpdateIdioms";
 import ColorSwitcher from "../../../components/ColorSwitcher";
 // Bootstrap
-import {
-    ListGroup,
-    Row,
-    Tooltip,
-    OverlayTrigger,
-    Col,
-    Form,
-    Breadcrumb,
-} from "react-bootstrap";
+import { ListGroup, Row, Col, Form, Breadcrumb } from "react-bootstrap";
 
 import Styles from "../../../styles/IdiomsExpressions.module.scss";
 
@@ -65,77 +57,61 @@ export default function Idioms() {
 
     return (
         <>
-            <>
-                <Breadcrumb>
-                    <Link href="/">
-                        <Breadcrumb.Item active>Home</Breadcrumb.Item>
-                    </Link>
-                    <Link href="/admin">
-                        <Breadcrumb.Item active>Admin</Breadcrumb.Item>
-                    </Link>
-                    <Link href="/admin/idioms">
-                        <Breadcrumb.Item active>Idioms</Breadcrumb.Item>
-                    </Link>
-                </Breadcrumb>
-                <Row className="mb-2 align-items-center">
-                    <Form.Label htmlFor="search">Search</Form.Label>
-                    <Col sm="12" md="6" className="text-start text-lg-center">
-                        <Form.Group>
-                            <Form.Control
-                                value={filter}
-                                type="Search"
-                                id="search"
-                                onChange={(e) => setfilter(e.target.value)}
-                                placeholder={`Name...`}
-                            />
-                        </Form.Group>
-                    </Col>
-                    <Col
-                        sm="12"
-                        lg="6"
-                        className="mt-4 mt-lg-0 text-start text-lg-center"
-                    >
-                        <AddIdioms />
-                    </Col>
-                </Row>
-                <Row>
-                    {filteredData?.map((ele) => {
-                        return (
-                            <ListGroup key={ele.id}>
-                                <OverlayTrigger
-                                    placement="top-start"
-                                    delay={{
-                                        show: 300,
-                                        hide: 250,
-                                    }}
-                                    overlay={
-                                        <Tooltip id="button-tooltip">
-                                            {"Ex: " +
-                                                (ele?.Ex || "Not available")}
-                                        </Tooltip>
-                                    }
-                                    context={ele.Ex}
-                                    containerPadding={20}
-                                >
-                                    <ListGroup.Item
-                                        className={`${Styles.col} ${
-                                            darkMode ? "text-white" : ""
-                                        } d-flex justify-content-between align-items-center`}
-                                    >
-                                        <span className="flex-grow-1">
-                                            {`${ele.index}: `}
-                                            <ColorSwitcher text={ele?.first} />
-                                        </span>
-                                        <span className="">
-                                            <UpdateIdioms status={ele} />
-                                        </span>
-                                    </ListGroup.Item>
-                                </OverlayTrigger>
-                            </ListGroup>
-                        );
-                    })}
-                </Row>
-            </>
+            <Breadcrumb>
+                <Link href="/">
+                    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+                </Link>
+                <Link href="/admin">
+                    <Breadcrumb.Item active>Admin</Breadcrumb.Item>
+                </Link>
+                <Link href="/admin/idioms">
+                    <Breadcrumb.Item active>Idioms</Breadcrumb.Item>
+                </Link>
+            </Breadcrumb>
+            <h1 className="mb-4">Idioms List</h1>
+
+            <Row className="mb-2 align-items-center">
+                <Form.Label htmlFor="search">Search</Form.Label>
+                <Col sm="12" md="6" className="text-start text-lg-center">
+                    <Form.Group>
+                        <Form.Control
+                            value={filter}
+                            type="Search"
+                            id="search"
+                            onChange={(e) => setfilter(e.target.value)}
+                            placeholder={`Name...`}
+                        />
+                    </Form.Group>
+                </Col>
+                <Col
+                    sm="12"
+                    lg="6"
+                    className="mt-4 mt-lg-0 text-start text-lg-center"
+                >
+                    <AddIdioms />
+                </Col>
+            </Row>
+            <Row>
+                {filteredData?.map((ele) => {
+                    return (
+                        <ListGroup key={ele.id}>
+                            <ListGroup.Item
+                                className={`${Styles.col} ${
+                                    darkMode ? "text-white" : ""
+                                } d-flex justify-content-between align-items-center`}
+                            >
+                                <span className="flex-grow-1">
+                                    {`${ele.index}: `}
+                                    <ColorSwitcher text={ele?.first} />
+                                </span>
+                                <span >
+                                    <UpdateIdioms status={ele} />
+                                </span>
+                            </ListGroup.Item>
+                        </ListGroup>
+                    );
+                })}
+            </Row>
         </>
     );
 }
