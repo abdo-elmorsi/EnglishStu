@@ -1,24 +1,25 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSelector } from "react-redux";
-import { useSession } from "next-auth/react";
-
-// Components
-import AddIdioms from "./AddIdioms";
-import UpdateIdioms from "./UpdateIdioms";
-import ColorSwitcher from "../../../components/ColorSwitcher";
-// Bootstrap
-import { ListGroup, Row, Col, Form, Breadcrumb } from "react-bootstrap";
-
-import Styles from "../../../styles/IdiomsExpressions.module.scss";
+import IsAdmin from "../../../components/Admin";
 
 // Firebase
 import { db } from "../../../lib/firebase/config";
 import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
-import Loader from "../../../components/loader";
-export default function Idioms() {
-    const { status } = useSession({ required: true });
 
+// Bootstrap
+import { ListGroup, Row, Col, Form, Breadcrumb } from "react-bootstrap";
+
+// Components
+import Loader from "../../../components/loader";
+import AddIdioms from "./AddIdioms";
+import UpdateIdioms from "./UpdateIdioms";
+import ColorSwitcher from "../../../components/ColorSwitcher";
+
+import Styles from "../../../styles/IdiomsExpressions.module.scss";
+
+export default function Idioms() {
+    const [loading, setloading] = useState(true);
     const [Idioms, setIdioms] = useState([]);
     const { darkMode } = useSelector((state) => state.config);
     const [filter, setfilter] = useState("");
@@ -29,6 +30,9 @@ export default function Idioms() {
             onSnapshot(
                 query(collection(db, "Idioms"), orderBy("createdAt")),
                 (snapshot) => {
+                    if (snapshot.empty) {
+                        return;
+                    }
                     setIdioms([
                         ...snapshot.docs.map((doc, i) => ({
                             index: i + 1,
@@ -36,6 +40,7 @@ export default function Idioms() {
                             ...doc.data(),
                         })),
                     ]);
+                    setloading(false);
                 }
             );
         } catch (error) {
@@ -51,12 +56,8 @@ export default function Idioms() {
         });
     }, [filter, Idioms]);
 
-    if (status === "loading") {
-        return <Loader />;
-    }
-
     return (
-        <>
+        <IsAdmin>
             <Breadcrumb>
                 <Link href="/">
                     <Breadcrumb.Item active>Home</Breadcrumb.Item>
@@ -92,26 +93,30 @@ export default function Idioms() {
                 </Col>
             </Row>
             <Row>
-                {filteredData?.map((ele) => {
-                    return (
-                        <ListGroup key={ele.id}>
-                            <ListGroup.Item
-                                className={`${Styles.col} ${
-                                    darkMode ? "text-white" : ""
-                                } d-flex justify-content-between align-items-center`}
-                            >
-                                <span className="flex-grow-1">
-                                    {`${ele.index}: `}
-                                    <ColorSwitcher text={ele?.first} />
-                                </span>
-                                <span >
-                                    <UpdateIdioms status={ele} />
-                                </span>
-                            </ListGroup.Item>
-                        </ListGroup>
-                    );
-                })}
+                {loading ? (
+                    <Loader />
+                ) : (
+                    filteredData?.map((ele) => {
+                        return (
+                            <ListGroup key={ele.id}>
+                                <ListGroup.Item
+                                    className={`${Styles.col} ${
+                                        darkMode ? "text-white" : ""
+                                    } d-flex justify-content-between align-items-center`}
+                                >
+                                    <span className="flex-grow-1">
+                                        {`${ele.index}: `}
+                                        <ColorSwitcher text={ele?.first} />
+                                    </span>
+                                    <span>
+                                        <UpdateIdioms status={ele} />
+                                    </span>
+                                </ListGroup.Item>
+                            </ListGroup>
+                        );
+                    })
+                )}
             </Row>
-        </>
+        </IsAdmin>
     );
 }

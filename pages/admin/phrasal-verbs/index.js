@@ -12,23 +12,22 @@ import { Breadcrumb } from "react-bootstrap";
 // Components
 import Loader from "../../../components/loader";
 import TableComp from "../../../components/Table/Index";
-import AddAcollocation from "./AddCollcations";
-import UpdateCollocation from "./UpdateCollocation";
-
-export default function Collocations() {
+import AddPhrasalVerb from "./AddPhrasalVerb";
+import UpdatePhrasalVerb from "./UpdatePhrasalVerb";
+export default function AdminPhrasalVerb() {
     const [loading, setloading] = useState(true);
-    const [Collocations, setCollocations] = useState([]);
+    const [PhrasalVerb, setPhrasalVerb] = useState([]);
     const [DataType, setDataType] = useState("");
     const [filter, setfilter] = useState("");
 
     useEffect(() => {
         onSnapshot(
-            query(collection(db, "Collocations"), orderBy("createdAt")),
+            query(collection(db, "PhrasalVerb"), orderBy("createdAt")),
             (snapshot) => {
                 if (snapshot.empty) {
                     return;
                 }
-                setCollocations([
+                setPhrasalVerb([
                     ...snapshot.docs.map((doc, i) => ({
                         index: i + 1,
                         id: doc.id,
@@ -41,12 +40,12 @@ export default function Collocations() {
     }, []);
     // filter data by search input
     const filteredData = useMemo(() => {
-        if (filter === "") Collocations;
+        if (filter === "") PhrasalVerb;
 
-        return Collocations.filter((item) => {
+        return PhrasalVerb.filter((item) => {
             return item.en.Name.toLowerCase().includes(filter.toLowerCase());
         });
-    }, [filter, Collocations]);
+    }, [filter, PhrasalVerb]);
 
     const columns = useMemo(
         () => [
@@ -68,7 +67,7 @@ export default function Collocations() {
             },
             {
                 name: `Actions`,
-                cell: (row) => <UpdateCollocation status={row} />,
+                cell: (row) => <UpdatePhrasalVerb status={row} />,
             },
         ],
 
@@ -83,18 +82,18 @@ export default function Collocations() {
                 <Link href="/admin">
                     <Breadcrumb.Item active>Admin</Breadcrumb.Item>
                 </Link>
-                <Link href="/admin/collocations">
-                    <Breadcrumb.Item active>Collocations</Breadcrumb.Item>
+                <Link href="/admin/phrasal-verbs">
+                    <Breadcrumb.Item active>Phrasal Verbs</Breadcrumb.Item>
                 </Link>
             </Breadcrumb>
-            <h1 className="mb-4">Collocation List</h1>
+            <h1 className="mb-4">PhrasalVerbs List</h1>
 
-            <AddAcollocation />
+            <AddPhrasalVerb />
             {loading ? (
                 <Loader />
             ) : (
                 <TableComp
-                    Name="collocations"
+                    Name="Phrasal verbs"
                     filter={filter}
                     Columns={columns}
                     setfilter={setfilter}

@@ -35,7 +35,7 @@ export default function Test_yourself() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="grammar/vocabulary">
+                        <Link href="/grammar/vocabulary">
                             <a>Grammar Vocabulary</a>
                         </Link>
                     </li>

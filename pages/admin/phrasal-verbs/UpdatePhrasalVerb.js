@@ -11,7 +11,7 @@ const UpdateIdioms = ({ status }) => {
 
     const handleClose = () => {
         setShow(false);
-        reset();
+        reset(status);
     };
     const handleShow = () => setShow(true);
 
@@ -45,8 +45,8 @@ const UpdateIdioms = ({ status }) => {
             },
         };
         try {
-            await DataServices.updateItem("Collocations", status.id, Data);
-            toast.success(`Collocation ( ${Data.en.Name} ) is  updated`);
+            await DataServices.updateItem("PhrasalVerb", status.id, Data);
+            toast.success(`PhrasalVerb ( ${Data.en.Name} ) is  updated`);
         } catch (error) {
             console.log(error);
             toast.error("Sorry there is an error");
@@ -57,8 +57,8 @@ const UpdateIdioms = ({ status }) => {
     // Delete the idiom
     const handleDelete = async (id) => {
         try {
-            await DataServices.deleteItem("Collocations", id);
-            toast.success(`Collocation ( ${status.en.Name} ) is deleted`);
+            await DataServices.deleteItem("PhrasalVerb", id);
+            toast.success(`PhrasalVerb ( ${status.en.Name} ) is deleted`);
         } catch (error) {
             console.log(error);
             toast.error("Sorry there is an error");
@@ -117,7 +117,7 @@ const UpdateIdioms = ({ status }) => {
                     className={`${darkMode ? "bg-dark" : null}`}
                     closeButton
                 >
-                    <Modal.Title>Add A Collocation</Modal.Title>
+                    <Modal.Title>Add A PhrasalVerb</Modal.Title>
                 </Modal.Header>
                 <Form onSubmit={handleSubmit(onSubmit)}>
                     <Modal.Body className={`${darkMode ? "bg-dark" : null}`}>

@@ -5,8 +5,12 @@ import { Button, Card } from "react-bootstrap";
 
 import { motion } from "framer-motion";
 import { slideDown } from "../helpers/Animation";
+import dynamic from "next/dynamic";
 
-import ColorSwitcher from "../components/ColorSwitcher";
+// import ColorSwitcher from "../components/ColorSwitcher";
+const ColorSwitcher = dynamic(() => import("../components/ColorSwitcher"), {
+    ssr: false,
+});
 export default function Index() {
     return (
         <>

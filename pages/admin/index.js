@@ -1,16 +1,12 @@
 import React from "react";
-import { useSession } from "next-auth/react";
-import Loader from "../../components/loader";
-import { Breadcrumb, Col, Row } from "react-bootstrap";
 import Link from "next/link";
+import { Breadcrumb, Col, Row } from "react-bootstrap";
+import IsAdmin from "../../components/Admin";
+import { useSession } from "next-auth/react";
 export default function Admin() {
-    const { data, status } = useSession({ required: true });
-    if (status === "loading") {
-        return <Loader />;
-    }
-
+    const { data } = useSession();
     return (
-        <div>
+        <IsAdmin>
             <Breadcrumb>
                 <Link href="/">
                     <Breadcrumb.Item active>Home</Breadcrumb.Item>
@@ -19,7 +15,7 @@ export default function Admin() {
                     <Breadcrumb.Item active>Admin</Breadcrumb.Item>
                 </Link>
             </Breadcrumb>
-            <h1>Wecome {data.user.name}</h1>
+            <h1>Wecome {data?.user?.name}</h1>
             <Row>
                 <Col sm="12" lg="4">
                     <h3>
@@ -43,6 +39,6 @@ export default function Admin() {
                     </h3>
                 </Col>
             </Row>
-        </div>
+        </IsAdmin>
     );
 }

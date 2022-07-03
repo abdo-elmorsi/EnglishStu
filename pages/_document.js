@@ -4,7 +4,7 @@ class MyDocument extends Document {
     static async getInitialProps(ctx) {
         const originalRenderPage = ctx.renderPage;
 
-        // Run the React rendering logic synchrunously
+        // Run the React rendering logic synchronously
         ctx.renderPage = () =>
             originalRenderPage({
                 // Useful for wrapping the whole react tree
@@ -21,9 +21,8 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html>
+            <Html lang="en">
                 <Head>
-                    <meta charSet="UTF-8" />
                     <meta name="author" content="Abdelrahman Ahmed" />
                     <link
                         rel="shortcut icon"
@@ -43,7 +42,7 @@ class MyDocument extends Document {
                         rel="stylesheet"
                     />
                 </Head>
-                <body>
+                <body className="dark">
                     <Main />
                     <NextScript />
                 </body>

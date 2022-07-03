@@ -133,7 +133,10 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
                             </div>
                         </div>
                         {process.env.NODE_ENV === "production" && (
-                            <p id="development">{`You may find some mistakes because it's still under development`}</p>
+                            <p
+                                onClick={(e) => e.target.remove()}
+                                id="development"
+                            >{`You may find some mistakes because it's still under development`}</p>
                         )}
                     </Provider>
                 </SSRProvider>
